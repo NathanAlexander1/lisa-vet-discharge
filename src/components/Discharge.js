@@ -9,7 +9,7 @@ function Discharge(props) {
         It was a pleasure to see {props.petName} today({props.date}), who is
         obviously a {props.petSex} {props.petType} for {props.reasonForVisit}.
       </p>
-      {props.noAbnormalities === false ? console.log(false) : <p>Your pet saddly has no abnormalities</p>}
+      {props.noAbnormalities === false ? <p>Your pet has no abnormalities</p> : null}
     </div>
   );
 }

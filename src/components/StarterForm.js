@@ -8,8 +8,35 @@ function StarterForm() {
   const [date, setDate] = useState("");
   const [reasonForVisit, setReasonForVisit] = useState("");
   const [noAbnormalities, setNoAbnormalities] = useState(false);
-
+  const [vaccines, setVaccines] = useState(false);
   const [showDischarge, setShowDischarge] = useState(false);
+
+  let vaccineInfo = [
+    {
+      vaccineName: "Rabies Vaccine (1 yr)",
+      nextDue: "1 year from when vaccine was administered",
+    },
+    {
+      vaccineName: "Rabies Vaccine (3 yr)",
+      nextDue: "3 years from when vaccine was administered",
+    },
+    {
+      vaccineName: "Pure Vax Ravies (1 yr)",
+      nextDue: "1 year from when vaccine was administered",
+    },
+    {
+      vaccineName: "FVRCP (1 yr)",
+      nextDue: "1 year from when vaccine was administered",
+    },
+    {
+      vaccineName: "FVRCP (booster)",
+      nextDue: "3-4 weeks from booster",
+    },
+    {
+      vaccineName: "FVRCP (3 yr)",
+      nextDue: "3 years from when vaccine was administered",
+    },
+  ];
 
   const handleInitialScreenForm = (e) => {
     e.preventDefault();
@@ -81,6 +108,40 @@ function StarterForm() {
             type="checkbox"
             checked={noAbnormalities}
           />
+          {noAbnormalities === false ? null : (
+            <form>
+              <select multiple>
+                <option value="overweight dog">Overweight Dog</option>
+                <option value="overweight cat">Overweight Cat</option>
+                <option value="mild dental disease">Mild Dental Disease</option>
+                <option value="moderate to severe dental disease">
+                  Moderate to Severe Dental Disease
+                </option>
+                <option value="fleas">Fleas</option>
+                <option value="tapeworms">Tapeworms</option>
+                <option value="mild URI">Mild URI</option>
+              </select>
+            </form>
+          )}
+          <label htmlFor="vaccines">Vaccines?</label>
+          <input
+            class="form-input"
+            id="vaccines"
+            name="vaccines"
+            onChange={(e) => setVaccines(e.target.checked)}
+            type="checkbox"
+            checked={vaccines}
+          />
+          {vaccines === false ? null : (
+            <form>
+              <select multiple>
+                <option value="vaccine1">Vaccine1</option>
+                <option value="vaccine2">Vaccine2</option>
+                <option value="vaccine3">Vaccine3</option>
+                <option value="vaccine4">Vaccine4</option>
+              </select>
+            </form>
+          )}
           <button>Proceed</button>
         </form>
       ) : (
