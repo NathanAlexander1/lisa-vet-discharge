@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Discharge from "./Discharge";
+import { vaccineInfo } from "../const";
 
 function StarterForm() {
   const [petName, setPetName] = useState("");
@@ -10,33 +11,6 @@ function StarterForm() {
   const [noAbnormalities, setNoAbnormalities] = useState(false);
   const [vaccines, setVaccines] = useState(false);
   const [showDischarge, setShowDischarge] = useState(false);
-
-  let vaccineInfo = [
-    {
-      vaccineName: "Rabies Vaccine (1 yr)",
-      nextDue: "1 year from when vaccine was administered",
-    },
-    {
-      vaccineName: "Rabies Vaccine (3 yr)",
-      nextDue: "3 years from when vaccine was administered",
-    },
-    {
-      vaccineName: "Pure Vax Ravies (1 yr)",
-      nextDue: "1 year from when vaccine was administered",
-    },
-    {
-      vaccineName: "FVRCP (1 yr)",
-      nextDue: "1 year from when vaccine was administered",
-    },
-    {
-      vaccineName: "FVRCP (booster)",
-      nextDue: "3-4 weeks from booster",
-    },
-    {
-      vaccineName: "FVRCP (3 yr)",
-      nextDue: "3 years from when vaccine was administered",
-    },
-  ];
 
   const handleInitialScreenForm = (e) => {
     e.preventDefault();
@@ -135,10 +109,11 @@ function StarterForm() {
           {vaccines === false ? null : (
             <form>
               <select multiple>
-                <option value="vaccine1">Vaccine1</option>
-                <option value="vaccine2">Vaccine2</option>
-                <option value="vaccine3">Vaccine3</option>
-                <option value="vaccine4">Vaccine4</option>
+                {vaccineInfo.map((vi, i) => {
+                  return (
+                    <option value={vi.vaccineName}>{vi.vaccineName}</option>
+                  );
+                })}
               </select>
             </form>
           )}
