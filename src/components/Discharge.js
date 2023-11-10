@@ -10,6 +10,11 @@ function Discharge(props) {
         obviously a {props.petSex} {props.petType} for {props.reasonForVisit}.
       </p>
       {props.noAbnormalities === false ? <p>Your pet has no abnormalities</p> : null}
+      {props.vaccineArray.map((va, i) => {
+        return(
+            <p key={"vaccine array" + i}>{va.blurb}</p>
+        )
+      })}
     </div>
   );
 }

@@ -26,25 +26,21 @@ function StarterForm() {
       index === i ? !vaccine : vaccine
     );
     setCheckedState([...updatedCheckedState]);
-
-    // console.log(checkedState);
-    // console.log(updatedCheckedState);
-    let arr = [];
+    let selectedVaccinesArray = [];
     const total = updatedCheckedState.reduce((sum, currentState, i) => {
       if (currentState === true) {
-        // console.log(updatedCheckedState[i]);
-        // console.log(vaccineInfo[i]);
-        arr.push(vaccineInfo[i]);
+        selectedVaccinesArray.push(vaccineInfo[i]);
     }
-    // console.log(arr);
-    // return vaccineArray;
+    return selectedVaccinesArray;
+      // console.log(selectedVaccinesArray);
     }, 0);
-    // console.log(total);
+    console.log(total);
 
-    setVaccineArray(arr);
+    setVaccineArray(total);
     // console.log(vaccineArray);
+    return vaccineArray;
   };
-
+  
   return (
     <div>
       {!showDischarge ? (
