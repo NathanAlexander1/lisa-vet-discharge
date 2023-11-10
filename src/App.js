@@ -1,23 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "../src/styles/main.css"
+import StarterForm from "./components/StarterForm";
 function App() {
+  let arrayOfInputs = ["neutered", "spayed", "ringworm", "lit on fire"];
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <StarterForm/>
+      {/* <div className="options">
+        {arrayOfInputs.map((aoi, i) => {
+          return (
+              <h4>{aoi}</h4>
+          );
+        })}
+      </div>
+      <p>
+        It was a pleasure to see -pet's name- for -appointment type-.
+      </p> */}
     </div>
   );
 }
