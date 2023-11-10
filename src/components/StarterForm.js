@@ -10,6 +10,10 @@ function StarterForm() {
   const [reasonForVisit, setReasonForVisit] = useState("");
   const [noAbnormalities, setNoAbnormalities] = useState(false);
   const [vaccines, setVaccines] = useState(false);
+  const [checkedState, setCheckedState] = useState(
+    new Array(vaccineInfo.length).fill(false)
+  );
+  const [vaccineArray, setVaccineArray] = useState([]);
   const [showDischarge, setShowDischarge] = useState(false);
 
   const handleInitialScreenForm = (e) => {
@@ -17,19 +21,43 @@ function StarterForm() {
     setShowDischarge(true);
   };
 
+  const updateVaccineArray = (i) => {
+    const updatedCheckedState = checkedState.map((vaccine, index) =>
+      index === i ? !vaccine : vaccine
+    );
+    setCheckedState([...updatedCheckedState]);
+
+    // console.log(checkedState);
+    // console.log(updatedCheckedState);
+    let arr = [];
+    const total = updatedCheckedState.reduce((sum, currentState, i) => {
+      if (currentState === true) {
+        // console.log(updatedCheckedState[i]);
+        // console.log(vaccineInfo[i]);
+        arr.push(vaccineInfo[i]);
+    }
+    // console.log(arr);
+    // return vaccineArray;
+    }, 0);
+    // console.log(total);
+
+    setVaccineArray(arr);
+    // console.log(vaccineArray);
+  };
+
   return (
     <div>
       {!showDischarge ? (
-        <form class="initialScreenForm" onSubmit={handleInitialScreenForm}>
+        <form className="initialScreenForm" onSubmit={handleInitialScreenForm}>
           <input
-            class="form-input"
+            className="form-input"
             name="name"
             placeholder="Pet Name"
             value={petName}
             onChange={(e) => setPetName(e.target.value)}
           />
           <select
-            class="form-input"
+            className="form-input"
             value={petType}
             onChange={(e) => setPetType(e.target.value)}
           >
@@ -39,7 +67,7 @@ function StarterForm() {
             <option value="rabbit">Rabbit</option>
           </select>
           <select
-            class="form-input"
+            className="form-input"
             value={petSex}
             onChange={(e) => setPetSex(e.target.value)}
           >
@@ -48,7 +76,7 @@ function StarterForm() {
             <option value="female">Female</option>
           </select>
           <input
-            class="form-input"
+            className="form-input"
             onChange={(e) => setDate(e.target.value)}
             type="date"
             id="start"
@@ -58,7 +86,7 @@ function StarterForm() {
             max="2018-12-31"
           />
           <select
-            class="form-input"
+            className="form-input"
             value={reasonForVisit}
             onChange={(e) => setReasonForVisit(e.target.value)}
           >
@@ -75,7 +103,7 @@ function StarterForm() {
           </select>
           <label htmlFor="abnormalities">Abnormalities?</label>
           <input
-            class="form-input"
+            className="form-input"
             id="abnormalities"
             name="abnormalities"
             onChange={(e) => setNoAbnormalities(e.target.checked)}
@@ -83,23 +111,21 @@ function StarterForm() {
             checked={noAbnormalities}
           />
           {noAbnormalities === false ? null : (
-            <form>
-              <select multiple>
-                <option value="overweight dog">Overweight Dog</option>
-                <option value="overweight cat">Overweight Cat</option>
-                <option value="mild dental disease">Mild Dental Disease</option>
-                <option value="moderate to severe dental disease">
-                  Moderate to Severe Dental Disease
-                </option>
-                <option value="fleas">Fleas</option>
-                <option value="tapeworms">Tapeworms</option>
-                <option value="mild URI">Mild URI</option>
-              </select>
-            </form>
+            <select multiple>
+              <option value="overweight dog">Overweight Dog</option>
+              <option value="overweight cat">Overweight Cat</option>
+              <option value="mild dental disease">Mild Dental Disease</option>
+              <option value="moderate to severe dental disease">
+                Moderate to Severe Dental Disease
+              </option>
+              <option value="fleas">Fleas</option>
+              <option value="tapeworms">Tapeworms</option>
+              <option value="mild URI">Mild URI</option>
+            </select>
           )}
           <label htmlFor="vaccines">Vaccines?</label>
           <input
-            class="form-input"
+            className="form-input"
             id="vaccines"
             name="vaccines"
             onChange={(e) => setVaccines(e.target.checked)}
@@ -107,15 +133,26 @@ function StarterForm() {
             checked={vaccines}
           />
           {vaccines === false ? null : (
-            <form>
-              <select multiple>
-                {vaccineInfo.map((vi, i) => {
-                  return (
-                    <option value={vi.vaccineName}>{vi.vaccineName}</option>
-                  );
-                })}
-              </select>
-            </form>
+            // <form className="vaccinesSelect">
+            <>
+              {vaccineInfo.map((vi, i) => {
+                return (
+                  <div>
+                    <input
+                      // onChange={(e) => updateVaccineArray(e, vi)}
+                      id={vi.vaccineName}
+                      type="checkbox"
+                      name={vi.vaccineName}
+                      key={"vaccine" + i}
+                      checked={checkedState[i]}
+                      onChange={() => updateVaccineArray(i)}
+                    />
+                    <label htmlFor={vi.vaccineName}>{vi.vaccineName}</label>
+                  </div>
+                );
+              })}
+            </>
+            // </form>
           )}
           <button>Proceed</button>
         </form>
@@ -127,6 +164,7 @@ function StarterForm() {
           date={date}
           reasonForVisit={reasonForVisit}
           noAbnormalities={noAbnormalities}
+          vaccineArray={vaccineArray}
         />
       )}
     </div>

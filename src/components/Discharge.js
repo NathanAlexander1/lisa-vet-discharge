@@ -1,7 +1,7 @@
 import React from "react";
 
 function Discharge(props) {
-  console.log(props.noAbnormalities
+  console.log(props.vaccineArray
     );
   return (
     <div>
