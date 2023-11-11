@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import Moment from 'react-moment';
+import moment from 'moment';
 import Discharge from "./Discharge";
 import { vaccineInfo } from "../const";
 
@@ -6,7 +8,7 @@ function StarterForm() {
   const [petName, setPetName] = useState("");
   const [petType, setPetType] = useState("");
   const [petSex, setPetSex] = useState("");
-  const [date, setDate] = useState("");
+  const [date, setDate] = useState(moment().format('MM-DD-YYYY'));
   const [reasonForVisit, setReasonForVisit] = useState("");
   const [noAbnormalities, setNoAbnormalities] = useState(false);
   const [vaccines, setVaccines] = useState(false);
@@ -40,7 +42,7 @@ function StarterForm() {
     // console.log(vaccineArray);
     return vaccineArray;
   };
-  
+
   return (
     <div>
       {!showDischarge ? (
@@ -73,13 +75,11 @@ function StarterForm() {
           </select>
           <input
             className="form-input"
-            onChange={(e) => setDate(e.target.value)}
+            onChange={(e) => setDate(moment(e.target.value).format('MM-DD-YYYY'))}
             type="date"
             id="start"
             name="date"
             value={date}
-            min="2018-01-01"
-            max="2018-12-31"
           />
           <select
             className="form-input"
