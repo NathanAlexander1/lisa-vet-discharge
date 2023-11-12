@@ -90,17 +90,21 @@ export const vaccineInfo = [
 ];
 
 export const standardServicesInfo = [
+  {
+    service: "TEST",
+    blurb: "heShe hisHer hisHers himHer hisHer heShe hisHers hisHer heShe"
+},
     {
         service: "Dewormer",
-        blurb: "XXX also received a dose of oral deworming medication during this appointment. We have sent home an additional dose of this same medication which should be given in 14 days. Please give the provided dose by mouth as instructed on the label."
+        blurb: "petName also received a dose of oral deworming medication during this appointment. We have sent home an additional dose of this same medication which should be given in 14 days. Please give the provided dose by mouth as instructed on the label."
     },
     {
         service: "Microchip Placed",
-        blurb: "A microchip was placed during XXX's appointment. Microchip services are provided by 24Petwatch. To create an online account, please visit www.mypethealth.com. Microchips are programmed with the information you provided at the time of the appointment, and all future changes must go through 24Petwatch. Your pet's microchip number can be found in the pet info section of your records."
+        blurb: "A microchip was placed during petName's appointment. Microchip services are provided by 24Petwatch. To create an online account, please visit www.mypethealth.com. Microchips are programmed with the information you provided at the time of the appointment, and all future changes must go through 24Petwatch. Your pet's microchip number can be found in the pet info section of your records."
     },
     {
         service: "Microchip Recommended",
-        blurb: "Microchipping is also available through the wellness clinic. Microchipping is minimally invasive and makes it easy for others to identify your pet if they are lost. Each chip number is unique and is registered with a national database. This number links to your address and phone number. Most animal organizations and veterinary clinics have the ability to scan and read microchips and will notify you if XXX is ever found. Please let us know if you would like this service performed at your next wellness appointment."
+        blurb: "Microchipping is also available through the wellness clinic. Microchipping is minimally invasive and makes it easy for others to identify your pet if they are lost. Each chip number is unique and is registered with a national database. This number links to your address and phone number. Most animal organizations and veterinary clinics have the ability to scan and read microchips and will notify you if heShe is ever found. Please let us know if you would like this service performed at your next wellness appointment."
     },
     {
         service: "Microchip Found",

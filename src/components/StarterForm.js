@@ -75,7 +75,7 @@ function StarterForm() {
             onChange={(e) => setReasonForVisit(e.target.value)}
           >
             <option value="">Select Reason For Visit</option>
-            <option value="a wellness exam">Wellness Exame</option>
+            <option value="a wellness exam">Wellness Exam</option>
             <option value="a wellness exam and vaccines">
               Wellness Exam & Vaccines
             </option>

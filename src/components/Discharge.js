@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import Moment from "react-moment";
 import moment from "moment";
-import { petPronouns } from "../utils/functions";
+import { petPronouns, insertPronounsIntoBlurb } from "../utils/functions";
 
 function Discharge(props) {
   const [pronounsObject, setPronounsObject] = useState(
     petPronouns(props.petSex)
   );
+
   // console.log(document.getElementsByTagName('html')[0].innerText)
   // const text = "document.getElementsByTagName('html')[0].innerHTML";
   // console.log(props.standardProcArr);
@@ -66,12 +67,15 @@ function Discharge(props) {
         </p>
       )}
       <ul>
-        {props.standardProcArr.map((sPA, i) => {
+        {insertPronounsIntoBlurb(
+          props.standardProcArr,
+          pronounsObject,
+          props.petName
+        ).map((iPIB, i) => {
+          console.log(iPIB)
           return (
             <>
-              <li>
-                {sPA.service} - {sPA.blurb}
-              </li>
+              <li>{iPIB.service} - {iPIB.blurb}</li>
             </>
           );
         })}
