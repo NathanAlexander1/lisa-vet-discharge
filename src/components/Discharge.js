@@ -1,19 +1,25 @@
 import React, { useState } from "react";
 import Moment from "react-moment";
 import moment from "moment";
+import { petPronouns } from "../utils/functions";
 
 function Discharge(props) {
+    const [pronounsObject, setPronounsObject] = useState(petPronouns(props.petSex));
+    // console.log(props.petSex)
+    
+
+    console.log(pronounsObject.heShe, pronounsObject.himHer, pronounsObject.hisHers, pronounsObject.they)
+
   return (
     <div>
       <p>
-        It was a pleasure to see {props.petName} today({props.date}), who is
-        obviously a {props.petSex} {props.petType} for {props.reasonForVisit}.
+        It was a pleasure to see {props.petName} today ({props.date}). {pronounsObject.heShe} is a wonderful {props.petType} and we loved seeing {pronounsObject.himHer.toLocaleLowerCase()} for {props.reasonForVisit}.
       </p>
       {props.noAbnormalities === false ? (
-        <p>Your pet has no abnormalities</p>
+        <p>I am happy to report that {props.petName} has no abnormalities</p>
       ) : null}
       <p>
-        {props.petName} received the following vaccines during this appointment:
+      {pronounsObject.heShe} received the following vaccines during this appointment:
       </p>
       <ul>
         {props.vaccineArray.map((va, i) => {
