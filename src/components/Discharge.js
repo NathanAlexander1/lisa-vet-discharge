@@ -7,7 +7,7 @@ function Discharge(props) {
   const [pronounsObject, setPronounsObject] = useState(
     petPronouns(props.petSex)
   );
-
+  // console.log(props)
   // console.log(document.getElementsByTagName('html')[0].innerText)
   // const text = "document.getElementsByTagName('html')[0].innerHTML";
   // console.log(props.standardProcArr);
@@ -39,21 +39,24 @@ function Discharge(props) {
         </p>
       )}
       <ul>
-        {props.vaccineArray.map((va, i) => {
+      {insertPronounsIntoBlurb(
+          props.vaccineArray,
+          pronounsObject,
+          props.petName
+        ).map((iPIB, i) => {
           let nextDue = moment(
-            moment(props.date).add(va.nextDueYrs, "years")._d
+            moment(props.date).add(iPIB.nextDueYrs, "years")._d
           ).format("MM/DD/YYYY");
-          //   console.log(nextDue);
-
+          // console.log(iPIB)
           return (
             <>
-              {va.nextDueYrs !== "" ? (
+              {iPIB.nextDueYrs !== "" ? (
                 <li key={"vaccine array" + i}>
-                  {va.vaccineName} (next due {nextDue}).
+                  {iPIB.service} (next due {nextDue}).
                 </li>
               ) : (
                 <li>
-                  {va.vaccineName} (booster in {va.booster})
+                  {iPIB.service} (booster in {iPIB.booster})
                 </li>
               )}
             </>
@@ -72,7 +75,7 @@ function Discharge(props) {
           pronounsObject,
           props.petName
         ).map((iPIB, i) => {
-          console.log(iPIB)
+          // console.log(iPIB)
           return (
             <>
               <li>{iPIB.service} - {iPIB.blurb}</li>

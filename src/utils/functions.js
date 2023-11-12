@@ -1,4 +1,3 @@
-
 export const petPronouns = (maleOrFemale) => {
   // console.log(maleOrFemale);
 
@@ -25,19 +24,31 @@ export const petPronouns = (maleOrFemale) => {
   }
 };
 
-export const insertPronounsIntoBlurb = (servicesArr, pronounsObject, petName) => {
+export const insertPronounsIntoBlurb = (
+  servicesArr,
+  pronounsObject,
+  petName
+) => {
+  // console.log(servicesArr)
   let dynamicallyRenderedServiceArr = servicesArr.map((sA, i) => {
-    let replaceWords = sA.blurb.split("petName").join(petName).split("heShe").join(pronounsObject.heShe).split("himHer").join(pronounsObject.himHer).split("hisHers").join(pronounsObject.hisHers).split("hisHer").join(pronounsObject.hisHer)
-    console.log(replaceWords)
-    return {service: sA.service,
-    blurb: replaceWords}
-  })
+    // console.log(sA)
+    let replaceWords = sA.blurb.split("petName").join(petName).split("heShe").join(pronounsObject.heShe).split("himHer").join(pronounsObject.himHer).split("hisHers").join(pronounsObject.hisHers).split("hisHer").join(pronounsObject.hisHer);
+    sA.blurb = replaceWords;
+    return sA;
+  });
+  // console.log(dynamicallyRenderedServiceArr)
   return dynamicallyRenderedServiceArr;
-}
+};
 
-export const updateMulticheckArr = (i, standardServicesInfo, [checkedState, setCheckedState], [treatmentArr, setTreatmentArr]) => {
-  const updatedCheckedState = checkedState.map((treatmeantAdministeredQ, index) =>
-    index === i ? !treatmeantAdministeredQ : treatmeantAdministeredQ
+export const updateMulticheckArr = (
+  i,
+  standardServicesInfo,
+  [checkedState, setCheckedState],
+  [treatmentArr, setTreatmentArr]
+) => {
+  const updatedCheckedState = checkedState.map(
+    (treatmeantAdministeredQ, index) =>
+      index === i ? !treatmeantAdministeredQ : treatmeantAdministeredQ
   );
   setCheckedState([...updatedCheckedState]);
   let selectedTreatmentcArray = [];
@@ -48,9 +59,9 @@ export const updateMulticheckArr = (i, standardServicesInfo, [checkedState, setC
     return selectedTreatmentcArray;
     // console.log(selectedTreatmentcArray);
   }, 0);
-  console.log(total);
+  // console.log(total);
 
   setTreatmentArr(total);
-  console.log(treatmentArr);
+  // console.log(treatmentArr);
   return treatmentArr;
 };

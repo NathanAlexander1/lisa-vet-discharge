@@ -123,14 +123,14 @@ function StarterForm() {
                 return (
                   <div>
                     <input
-                      id={vi.vaccineName}
+                      id={vi.service}
                       type="checkbox"
-                      name={vi.vaccineName}
+                      name={vi.service}
                       key={"vaccine" + i}
                       checked={checkedStateOne[i]}
                       onChange={() => updateMulticheckArr(i, vaccineInfo, [checkedStateOne, setCheckedStateOne], [vaccineArray, setVaccineArray])}
                     />
-                    <label htmlFor={vi.vaccineName}>{vi.vaccineName}</label>
+                    <label htmlFor={vi.service}>{vi.service}</label>
                   </div>
                 );
               })}
