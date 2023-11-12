@@ -8,7 +8,7 @@ function Discharge(props) {
     // console.log(props.petSex)
     
 
-    console.log(pronounsObject.heShe, pronounsObject.himHer, pronounsObject.hisHers, pronounsObject.they)
+    // console.log(pronounsObject.heShe, pronounsObject.himHer, pronounsObject.hisHers, pronounsObject.they)
 
   return (
     <div>
