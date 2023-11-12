@@ -1,46 +1,32 @@
 import React, { useState } from "react";
-import Moment from 'react-moment';
-import moment from 'moment';
+import Moment from "react-moment";
+import moment from "moment";
 import Discharge from "./Discharge";
-import { vaccineInfo } from "../const";
+import { vaccineInfo, standardServicesInfo } from "../const";
+import { updateMulticheckArr } from "../utils/functions"
 
 function StarterForm() {
   const [petName, setPetName] = useState("");
   const [petType, setPetType] = useState("");
   const [petSex, setPetSex] = useState("");
-  const [date, setDate] = useState(moment().format('MM-DD-YYYY'));
+  const [date, setDate] = useState(moment().format("MM-DD-YYYY"));
   const [reasonForVisit, setReasonForVisit] = useState("");
   const [noAbnormalities, setNoAbnormalities] = useState(false);
   const [vaccines, setVaccines] = useState(false);
-  const [checkedState, setCheckedState] = useState(
+  const [appliedStrdPrc, setAppliedStrdPrc] = useState(false);
+  const [checkedStateOne, setCheckedStateOne] = useState(
     new Array(vaccineInfo.length).fill(false)
   );
+  const [checkedStateTwo, setCheckedStateTwo] = useState(
+    new Array(standardServicesInfo.length).fill(false)
+  );
   const [vaccineArray, setVaccineArray] = useState([]);
+  const [standardProcArr, setStandardProcArr] = useState([]);
   const [showDischarge, setShowDischarge] = useState(false);
 
   const handleInitialScreenForm = (e) => {
     e.preventDefault();
     setShowDischarge(true);
-  };
-
-  const updateVaccineArray = (i) => {
-    const updatedCheckedState = checkedState.map((vaccine, index) =>
-      index === i ? !vaccine : vaccine
-    );
-    setCheckedState([...updatedCheckedState]);
-    let selectedVaccinesArray = [];
-    const total = updatedCheckedState.reduce((sum, currentState, i) => {
-      if (currentState === true) {
-        selectedVaccinesArray.push(vaccineInfo[i]);
-    }
-    return selectedVaccinesArray;
-      // console.log(selectedVaccinesArray);
-    }, 0);
-    console.log(total);
-
-    setVaccineArray(total);
-    // console.log(vaccineArray);
-    return vaccineArray;
   };
 
   return (
@@ -75,7 +61,9 @@ function StarterForm() {
           </select>
           <input
             className="form-input"
-            onChange={(e) => setDate(moment(e.target.value).format('MM-DD-YYYY'))}
+            onChange={(e) =>
+              setDate(moment(e.target.value).format("MM-DD-YYYY"))
+            }
             type="date"
             id="start"
             name="date"
@@ -135,13 +123,12 @@ function StarterForm() {
                 return (
                   <div>
                     <input
-                      // onChange={(e) => updateVaccineArray(e, vi)}
                       id={vi.vaccineName}
                       type="checkbox"
                       name={vi.vaccineName}
                       key={"vaccine" + i}
-                      checked={checkedState[i]}
-                      onChange={() => updateVaccineArray(i)}
+                      checked={checkedStateOne[i]}
+                      onChange={() => updateMulticheckArr(i, vaccineInfo, [checkedStateOne, setCheckedStateOne], [vaccineArray, setVaccineArray])}
                     />
                     <label htmlFor={vi.vaccineName}>{vi.vaccineName}</label>
                   </div>
@@ -149,6 +136,37 @@ function StarterForm() {
               })}
             </>
             // </form>
+          )}
+          <label htmlFor="applied-standard-proc">
+            Applied Standard Procedures?
+          </label>
+          <input
+            className="form-input"
+            id="applied-standard-proc"
+            name="applied-standard-proc"
+            onChange={(e) => setAppliedStrdPrc(e.target.checked)}
+            type="checkbox"
+            checked={appliedStrdPrc}
+          />
+          {appliedStrdPrc === false ? null : (
+            <>
+              {standardServicesInfo.map((sSI, i) => {
+                // console.log(sSI)
+                return (
+                  <div>
+                    <input
+                      id={sSI.service}
+                      type="checkbox"
+                      name={sSI.service}
+                      key={"Standard Service" + i}
+                      checked={checkedStateTwo[i]}
+                      onChange={() => updateMulticheckArr(i, standardServicesInfo, [checkedStateTwo, setCheckedStateTwo], [standardProcArr, setStandardProcArr])}
+                    />
+                    <label htmlFor={sSI.service}>{sSI.service}</label>
+                  </div>
+                );
+              })}
+            </>
           )}
           <button>Proceed</button>
         </form>
@@ -161,6 +179,7 @@ function StarterForm() {
           reasonForVisit={reasonForVisit}
           noAbnormalities={noAbnormalities}
           vaccineArray={vaccineArray}
+          standardProcArr={standardProcArr}
         />
       )}
     </div>
