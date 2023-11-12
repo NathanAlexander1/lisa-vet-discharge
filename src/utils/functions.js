@@ -24,39 +24,22 @@ export const petPronouns = (maleOrFemale) => {
   }
 };
 
-// export const updateVaccineArray = (i, infoArray, e) => {
-//   e.preventDefault();
-//   let checkedState = new Array(infoArray.length).fill(false);
-//   // console.log(checkedState)
-//   let vaccineArray = [];
-//   const updatedCheckedState = checkedState.map((vaccine, index) => {
-//     if (index === i) {
-//         console.log(index, i)
+export const updateMulticheckArr = (i, standardServicesInfo, [checkedState, setCheckedState], [treatmentArr, setTreatmentArr]) => {
+  const updatedCheckedState = checkedState.map((treatmeantAdministeredQ, index) =>
+    index === i ? !treatmeantAdministeredQ : treatmeantAdministeredQ
+  );
+  setCheckedState([...updatedCheckedState]);
+  let selectedTreatmentcArray = [];
+  const total = updatedCheckedState.reduce((sum, currentState, i) => {
+    if (currentState === true) {
+      selectedTreatmentcArray.push(standardServicesInfo[i]);
+    }
+    return selectedTreatmentcArray;
+    // console.log(selectedTreatmentcArray);
+  }, 0);
+  console.log(total);
 
-//         return !vaccine
-//     } else {
-//         console.log(index, i)
-//         return vaccine
-//       }
-//   }
-//     // index === i ? !vaccine : vaccine
-//     );
-    
-//     checkedState = [...updatedCheckedState];
-//     console.log(checkedState);
-
-//   let selectedVaccinesArray = [];
-  
-//   const total = updatedCheckedState.reduce((sum, currentState, i) => {
-//     if (currentState === true) {
-//       selectedVaccinesArray.push(infoArray[i]);
-//     }
-//     return selectedVaccinesArray;
-//     // console.log(selectedVaccinesArray);
-//   }, 0);
-//   // console.log(total);
-
-//   vaccineArray = total;
-//   console.log(vaccineArray);
-//   return vaccineArray;
-// };
+  setTreatmentArr(total);
+  // console.log(standardProcArr);
+  return treatmentArr;
+};

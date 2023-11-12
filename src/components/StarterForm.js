@@ -3,7 +3,7 @@ import Moment from "react-moment";
 import moment from "moment";
 import Discharge from "./Discharge";
 import { vaccineInfo, standardServicesInfo } from "../const";
-// import { updateVaccineArray } from "../utils/functions"
+import { updateMulticheckArr } from "../utils/functions"
 
 function StarterForm() {
   const [petName, setPetName] = useState("");
@@ -18,7 +18,7 @@ function StarterForm() {
     new Array(vaccineInfo.length).fill(false)
   );
   const [checkedStateTwo, setCheckedStateTwo] = useState(
-    new Array(vaccineInfo.length).fill(false)
+    new Array(standardServicesInfo.length).fill(false)
   );
   const [vaccineArray, setVaccineArray] = useState([]);
   const [standardProcArr, setStandardProcArr] = useState([]);
@@ -28,48 +28,6 @@ function StarterForm() {
     e.preventDefault();
     setShowDischarge(true);
   };
-
-  const updateVaccineArray = (i) => {
-    const updatedCheckedState = checkedStateOne.map((vaccine, index) =>
-      index === i ? !vaccine : vaccine
-    );
-    setCheckedStateOne([...updatedCheckedState]);
-    let selectedVaccinesArray = [];
-    const total = updatedCheckedState.reduce((sum, currentState, i) => {
-      if (currentState === true) {
-        selectedVaccinesArray.push(vaccineInfo[i]);
-      }
-      return selectedVaccinesArray;
-      // console.log(selectedVaccinesArray);
-    }, 0);
-    console.log(total);
-
-    setVaccineArray(total);
-    // console.log(vaccineArray);
-    return vaccineArray;
-  };
-
-  const updateStrdPrcArr = (i) => {
-    const updatedCheckedState = checkedStateTwo.map((strdProc, index) =>
-      index === i ? !strdProc : strdProc
-    );
-    setCheckedStateTwo([...updatedCheckedState]);
-    let selectedStrdProcArray = [];
-    const total = updatedCheckedState.reduce((sum, currentState, i) => {
-      if (currentState === true) {
-        selectedStrdProcArray.push(standardServicesInfo[i]);
-      }
-      return selectedStrdProcArray;
-      // console.log(selectedStrdProcArray);
-    }, 0);
-    console.log(total);
-
-    setStandardProcArr(total);
-    // console.log(standardProcArr);
-    return standardProcArr;
-  };
-
-  // updateVaccineArray(i, vaccine, useState, vaccineInfo);
 
   return (
     <div>
@@ -170,7 +128,7 @@ function StarterForm() {
                       name={vi.vaccineName}
                       key={"vaccine" + i}
                       checked={checkedStateOne[i]}
-                      onChange={() => updateVaccineArray(i)}
+                      onChange={() => updateMulticheckArr(i, vaccineInfo, [checkedStateOne, setCheckedStateOne], [vaccineArray, setVaccineArray])}
                     />
                     <label htmlFor={vi.vaccineName}>{vi.vaccineName}</label>
                   </div>
@@ -202,7 +160,7 @@ function StarterForm() {
                       name={sSI.service}
                       key={"Standard Service" + i}
                       checked={checkedStateTwo[i]}
-                      onChange={() => updateStrdPrcArr(i)}
+                      onChange={() => updateMulticheckArr(i, standardServicesInfo, [checkedStateTwo, setCheckedStateTwo], [standardProcArr, setStandardProcArr])}
                     />
                     <label htmlFor={sSI.service}>{sSI.service}</label>
                   </div>

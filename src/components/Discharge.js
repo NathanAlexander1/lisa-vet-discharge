@@ -7,12 +7,21 @@ function Discharge(props) {
   const [pronounsObject, setPronounsObject] = useState(
     petPronouns(props.petSex)
   );
-  console.log(props.standardProcArr);
+  // console.log(document.getElementsByTagName('html')[0].innerText)
+  // const text = "document.getElementsByTagName('html')[0].innerHTML";
+  // console.log(props.standardProcArr);
 
   // console.log(pronounsObject.heShe, pronounsObject.himHer, pronounsObject.hisHers, pronounsObject.they)
 
   return (
     <div>
+      {/* <button
+        onClick={() => {
+          navigator.clipboard.writeText(text);
+        }}
+      >
+        Copy
+      </button> */}
       <p>
         It was a pleasure to see {props.petName} today ({props.date}).{" "}
         {pronounsObject.heShe} is a wonderful {props.petType} and we loved
@@ -52,8 +61,8 @@ function Discharge(props) {
       </ul>
       {props.standardProcArr.length <= 0 ? null : (
         <p>
-          {pronounsObject.heShe} received the following standard procedures during this
-          appointment:
+          {pronounsObject.heShe} received the following standard procedures
+          during this appointment:
         </p>
       )}
       <ul>
