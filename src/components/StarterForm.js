@@ -221,6 +221,7 @@ function StarterForm() {
           reasonForVisit={reasonForVisit}
           noAbnormalities={noAbnormalities}
           vaccineArray={vaccineArray}
+          standardProcArr={standardProcArr}
         />
       )}
     </div>
