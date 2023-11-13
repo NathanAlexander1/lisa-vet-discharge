@@ -78,7 +78,7 @@ function Discharge(props) {
           // console.log(iPIB)
           return (
             <>
-              <li>{iPIB.service} - {iPIB.blurb}</li>
+              <li>{iPIB.service} - {iPIB.htmlBlurb}</li>
             </>
           );
         })}
