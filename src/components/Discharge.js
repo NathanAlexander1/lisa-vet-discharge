@@ -13,7 +13,6 @@ function Discharge(props) {
   // console.log(props.standardProcArr);
 
   // console.log(pronounsObject.heShe, pronounsObject.himHer, pronounsObject.hisHers, pronounsObject.they)
-
   return (
     <div>
       {/* <button
@@ -75,10 +74,26 @@ function Discharge(props) {
           pronounsObject,
           props.petName
         ).map((iPIB, i) => {
-          // console.log(iPIB)
+          let domChildren = iPIB.newBlurb.children
+          console.log(iPIB.newBlurb.children)
+          let cleanTextArr = [];
+          for (let k = 0; k < domChildren.length; k++) {
+            // console.log('hlelo')
+            let domChild = domChildren[k];
+            console.log(domChild.innerText)
+            cleanTextArr.push(domChild.innerText)
+            iPIB.cleanText = cleanTextArr;
+          }
+          console.log(iPIB)
+          
           return (
             <>
-              <li>{iPIB.service} - {iPIB.htmlBlurb}</li>
+              {/* <li>{iPIB.service} - {iPIB.htmlBlurb}</li> */}
+              <li>{iPIB.cleanText.map((cT, j) => {
+                return(
+                  <p>{cT}</p>
+                )
+              })}</li>
             </>
           );
         })}
