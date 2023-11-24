@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Moment from "react-moment";
 import moment from "moment";
-import { petPronouns, insertPronounsIntoBlurb } from "../utils/functions";
+import { petPronouns, stringToHTML } from "../utils/functions";
 
 function Discharge(props) {
   const [pronounsObject, setPronounsObject] = useState(
@@ -38,7 +38,7 @@ function Discharge(props) {
         </p>
       )}
       <ul>
-      {insertPronounsIntoBlurb(
+      {stringToHTML(
           props.vaccineArray,
           pronounsObject,
           props.petName
@@ -50,13 +50,13 @@ function Discharge(props) {
           return (
             <>
               {iPIB.nextDueYrs !== "" ? (
-                <li key={"vaccine array" + i}>
-                  {iPIB.service} (next due {nextDue}).
-                </li>
+                <>
+                  <li dangerouslySetInnerHTML ={{__html: iPIB.cleanBlurb.outerHTML}}/> <p>- (next due {nextDue})</p>
+                </>
               ) : (
-                <li>
-                  {iPIB.service} (booster in {iPIB.booster})
-                </li>
+                <>
+                  <li dangerouslySetInnerHTML ={{__html: iPIB.cleanBlurb.outerHTML}}/> <p>- (booster in {iPIB.booster})</p>
+                </>
               )}
             </>
           );
@@ -69,31 +69,17 @@ function Discharge(props) {
         </p>
       )}
       <ul>
-        {insertPronounsIntoBlurb(
+        {stringToHTML(
           props.standardProcArr,
           pronounsObject,
           props.petName
         ).map((iPIB, i) => {
-          let domChildren = iPIB.newBlurb.children
-          console.log(iPIB.newBlurb.children)
-          let cleanTextArr = [];
-          for (let k = 0; k < domChildren.length; k++) {
-            // console.log('hlelo')
-            let domChild = domChildren[k];
-            console.log(domChild.innerText)
-            cleanTextArr.push(domChild.innerText)
-            iPIB.cleanText = cleanTextArr;
-          }
           console.log(iPIB)
-          
+          console.log(iPIB.cleanBlurb.innerHTML)
+
           return (
             <>
-              {/* <li>{iPIB.service} - {iPIB.htmlBlurb}</li> */}
-              <li>{iPIB.cleanText.map((cT, j) => {
-                return(
-                  <p>{cT}</p>
-                )
-              })}</li>
+              <li dangerouslySetInnerHTML ={{__html: iPIB.cleanBlurb.outerHTML}}/>
             </>
           );
         })}
