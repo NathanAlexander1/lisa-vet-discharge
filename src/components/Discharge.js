@@ -1,18 +1,18 @@
 import React, { useState } from "react";
 import Moment from "react-moment";
 import moment from "moment";
-import { petPronouns } from "../utils/functions";
+import { petPronouns, stringToHTML } from "../utils/functions";
 
 function Discharge(props) {
   const [pronounsObject, setPronounsObject] = useState(
     petPronouns(props.petSex)
   );
+  // console.log(props)
   // console.log(document.getElementsByTagName('html')[0].innerText)
   // const text = "document.getElementsByTagName('html')[0].innerHTML";
   // console.log(props.standardProcArr);
 
   // console.log(pronounsObject.heShe, pronounsObject.himHer, pronounsObject.hisHers, pronounsObject.they)
-
   return (
     <div>
       {/* <button
@@ -38,22 +38,25 @@ function Discharge(props) {
         </p>
       )}
       <ul>
-        {props.vaccineArray.map((va, i) => {
+      {stringToHTML(
+          props.vaccineArray,
+          pronounsObject,
+          props.petName
+        ).map((iPIB, i) => {
           let nextDue = moment(
-            moment(props.date).add(va.nextDueYrs, "years")._d
+            moment(props.date).add(iPIB.nextDueYrs, "years")._d
           ).format("MM/DD/YYYY");
-          //   console.log(nextDue);
-
+          // console.log(iPIB)
           return (
             <>
-              {va.nextDueYrs !== "" ? (
-                <li key={"vaccine array" + i}>
-                  {va.vaccineName} (next due {nextDue}).
-                </li>
+              {iPIB.nextDueYrs !== "" ? (
+                <>
+                  <li dangerouslySetInnerHTML ={{__html: iPIB.cleanBlurb.outerHTML}}/> <p>- (next due {nextDue})</p>
+                </>
               ) : (
-                <li>
-                  {va.vaccineName} (booster in {va.booster})
-                </li>
+                <>
+                  <li dangerouslySetInnerHTML ={{__html: iPIB.cleanBlurb.outerHTML}}/> <p>- (booster in {iPIB.booster})</p>
+                </>
               )}
             </>
           );
@@ -66,12 +69,17 @@ function Discharge(props) {
         </p>
       )}
       <ul>
-        {props.standardProcArr.map((sPA, i) => {
+        {stringToHTML(
+          props.standardProcArr,
+          pronounsObject,
+          props.petName
+        ).map((iPIB, i) => {
+          console.log(iPIB)
+          console.log(iPIB.cleanBlurb.innerHTML)
+
           return (
             <>
-              <li>
-                {sPA.service} - {sPA.blurb}
-              </li>
+              <li dangerouslySetInnerHTML ={{__html: iPIB.cleanBlurb.outerHTML}}/>
             </>
           );
         })}
