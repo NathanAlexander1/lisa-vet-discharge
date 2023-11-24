@@ -1,26 +1,37 @@
-/* * {
+* {
     margin: 0;
     padding:0;
     box-sizing: border-box;
-} */
-
-body {
-    margin: 15px;
 }
 
-.initialScreenForm {
+.App {
+    min-height: 100vh;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
 }
-.form-input {
-    margin: 5px
+
+.form-container {
+    border: 3px solid black;
+    margin: 15px;
+    .initialScreenForm {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 30px;
+    }
+    .discharge-report {
+        margin: 20px;
+    }
+    .form-input {
+        margin: 5px
+    }
+    .options {
+        display: flex;
+        justify-content: space-around;
+    }
 }
 
-.options {
-    display: flex;
-    justify-content: space-around;
-}
 
 h4 {
     border: 3px solid black;

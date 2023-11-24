@@ -5,16 +5,6 @@ function App() {
   return (
     <div className="App">
       <StarterForm/>
-      {/* <div className="options">
-        {arrayOfInputs.map((aoi, i) => {
-          return (
-              <h4>{aoi}</h4>
-          );
-        })}
-      </div>
-      <p>
-        It was a pleasure to see -pet's name- for -appointment type-.
-      </p> */}
     </div>
   );
 }

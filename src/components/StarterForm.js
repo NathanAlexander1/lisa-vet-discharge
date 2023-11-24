@@ -30,7 +30,7 @@ function StarterForm() {
   };
 
   return (
-    <div>
+    <div className="form-container">
       {!showDischarge ? (
         <form className="initialScreenForm" onSubmit={handleInitialScreenForm}>
           <input

@@ -1,6 +1,4 @@
 export const petPronouns = (maleOrFemale) => {
-  // console.log(maleOrFemale);
-
   if (maleOrFemale === "male") {
     let pronounsObject = {
       heShe: "he",

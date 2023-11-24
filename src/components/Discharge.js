@@ -14,7 +14,7 @@ function Discharge(props) {
 
   // console.log(pronounsObject.heShe, pronounsObject.himHer, pronounsObject.hisHers, pronounsObject.they)
   return (
-    <div>
+    <div className="discharge-report">
       {/* <button
         onClick={() => {
           navigator.clipboard.writeText(text);
