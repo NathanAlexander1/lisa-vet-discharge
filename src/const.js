@@ -3,7 +3,7 @@ export const vaccineInfo = [
     service: "Rabies Vaccine (1 yr)",
     nextDue: "1 year from when vaccine was administered",
     nextDueYrs: "1",
-    domBlurb: "heShe This is the domBlurb about Rabies Vaccine (1 yr)!",
+    domBlurb: "capHeShe is a himHer. petName has hisHer shit together and heShe is very well adapted to hisHer environment. This heShe is the himHer domBlurb about Rabies capHimHerVaccine (1 yr)!",
   },
   {
     service: "Rabies Vaccine (3 yr)",
@@ -98,7 +98,7 @@ export const standardServicesInfo = [
     service: "Dewormer",
     blurb:
       "petName also heShe received a dose of oral deworming medication during this appointment. We have sent home an additional dose of this same medication which should be given in 14 days. Please give the provided dose by mouth as instructed on the label.",
-      domBlurb: "<p>petName also received a dose of oral deworming medication during this appointment. We have sent home an additional dose of this same medication which should be given in 14 days. Please give the provided dose by mouth as instructed on the label</p><p>knlf sdf dlfka ads heShe lkasdfnlk asdlklkadflnladnlzdf lakdflkdllasflknalsd himHer</p><p>knlf sdf dlfka ads heShe lkasdfnlk asdlklkadflnladnlzdf lakdflkdllasflknalsd himHer</p>"
+      domBlurb: "<p>petName also received a dose of oral deworming medication during this appointment. We have sent home an additional dose of this same medication which should be given in 14 days. Please give the provided dose by mouth as instructed on the label</p>"
         
       ,
   },
@@ -127,7 +127,7 @@ export const standardServicesInfo = [
         - FeLV results: Negative 
         - FIV results: Negative 
         Following exposure to either virus, it can take 1 to 3 months for an infection to develop. One negative test for FELV or FIV does not guarantee that a cat is truly negative. Due to lag time between a potential initial infection and the development of positive test results, retesting for confirmation of negative FIV and FeLV status may be recommended in the future.`,
-    domBlurb: "<li><p>An FeLV / FIV test was performed on petName. The results are listed below:</p><ul><li>1FeLV results: Negative</li><li>2FIV results: Negative</li></ul><p>Following exposure to either virus, it can take 1 to 3 months for an infection to develop for himHer. One negative test for FELV or FIV does not guarantee that a cat is truly negative. Due to lag time between a potential initial infection and the development of positive test results, retesting for confirmation of negative FIV and FeLV status may be recommended in the future.</p></li>",
+    domBlurb: "<p>An FeLV / FIV test was performed on petName. The results are listed below:</p><ul><li>1FeLV results: Negative</li><li>2FIV results: Negative</li></ul><p>Following exposure to either virus, it can take 1 to 3 months for an infection to develop for himHer. One negative test for FELV or FIV does not guarantee that a cat is truly negative. Due to lag time between a potential initial infection and the development of positive test results, retesting for confirmation of negative FIV and FeLV status may be recommended in the future.</p>",
   },
   {
     service: "FeLV Vaccine Info",

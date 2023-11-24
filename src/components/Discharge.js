@@ -74,12 +74,12 @@ function Discharge(props) {
           pronounsObject,
           props.petName
         ).map((iPIB, i) => {
-          console.log(iPIB)
-          console.log(iPIB.cleanBlurb.innerHTML)
+          // console.log(iPIB)
+          // console.log(iPIB.cleanBlurb.innerHTML)
 
           return (
             <>
-              <li dangerouslySetInnerHTML ={{__html: iPIB.cleanBlurb.outerHTML}}/>
+              <li dangerouslySetInnerHTML ={{__html: iPIB.cleanBlurb.innerHTML}}/>
             </>
           );
         })}
