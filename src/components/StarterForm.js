@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import API from "../utils/API";
 import Moment from "react-moment";
 import moment from "moment";
 import Discharge from "./Discharge";
@@ -6,6 +7,7 @@ import { vaccineInfo, standardServicesInfo } from "../const";
 import { updateMulticheckArr } from "../utils/functions"
 
 function StarterForm() {
+  const [randomDogImage, setRandomDogImage] = useState({});
   const [petName, setPetName] = useState("");
   const [petType, setPetType] = useState("");
   const [petSex, setPetSex] = useState("");
@@ -23,7 +25,13 @@ function StarterForm() {
   const [vaccineArray, setVaccineArray] = useState([]);
   const [standardProcArr, setStandardProcArr] = useState([]);
   const [showDischarge, setShowDischarge] = useState(false);
-
+  useEffect(() => {
+    API.getRandomDog().then((data) => {
+      console.log(data);
+      setRandomDogImage(data);
+    });
+  
+  }, []);
   const handleInitialScreenForm = (e) => {
     e.preventDefault();
     setShowDischarge(true);
@@ -33,6 +41,7 @@ function StarterForm() {
     <div className="form-container">
       {!showDischarge ? (
         <form className="initialScreenForm" onSubmit={handleInitialScreenForm}>
+          <img width="200px" src={randomDogImage.image} />
           <input
             className="form-input"
             name="name"
@@ -172,6 +181,7 @@ function StarterForm() {
         </form>
       ) : (
         <Discharge
+          randomDogImage={randomDogImage.image}
           petName={petName}
           petType={petType}
           petSex={petSex}

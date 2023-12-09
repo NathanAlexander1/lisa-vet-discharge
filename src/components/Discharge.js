@@ -22,18 +22,16 @@ function Discharge(props) {
       >
         Copy
       </button> */}
+      <img id="random-dog-img" width="200px" src={props.randomDogImage} />
       <p>
-        It was a pleasure to see {props.petName} today ({props.date}).{" "}
-        {pronounsObject.heShe} is a wonderful {props.petType} and we loved
-        seeing {pronounsObject.himHer.toLocaleLowerCase()} for{" "}
-        {props.reasonForVisit}.
+        It was a pleasure to see {props.petName} for a {props.reasonForVisit}.
       </p>
       {props.noAbnormalities === false ? (
         <p>I am happy to report that {props.petName} has no abnormalities</p>
       ) : null}
       {props.vaccineArray.length <= 0 ? null : (
         <p>
-          {pronounsObject.heShe} received the following vaccines during this
+          {props.petName} received the following vaccines during this
           appointment:
         </p>
       )}

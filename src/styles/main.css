@@ -22,6 +22,20 @@
     }
     .discharge-report {
         margin: 20px;
+        display: flex;
+        flex-direction: column;
+        #random-dog-img {
+            align-self: center;
+        }
+        /* ul {
+            list-style-type: none !important;
+            color:#999999 !important;
+          }
+          ul li:before {
+            content: '\2014' !important;
+            position: absolute !important;
+            margin-left: -20px !important;
+          } */
     }
     .form-input {
         margin: 5px

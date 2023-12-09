@@ -15,7 +15,7 @@ export const vaccineInfo = [
     service: "Pure Vax Rabies (1 yr)",
     nextDue: "1 year from when vaccine was administered",
     nextDueYrs: "1",
-    domBlurb: "This is the domBlurb about Pure Vax Rabies (1 yr)!",
+    domBlurb: "Pure Vax Rabies vaccine - next due ",
   },
   {
     service: "FVRCP (1 yr)",
@@ -90,10 +90,6 @@ export const vaccineInfo = [
 ];
 
 export const standardServicesInfo = [
-  {
-    service: "TEST",
-    blurb: "heShe hisHer hisHers himHer hisHer heShe hisHers hisHer heShe",
-  },
   {
     service: "Dewormer",
     blurb:
