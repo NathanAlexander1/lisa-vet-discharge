@@ -35,7 +35,7 @@ function Discharge(props) {
           appointment:
         </p>
       )}
-      <ul>
+      <ul id="vaccine-list">
       {stringToHTML(
           props.vaccineArray,
           pronounsObject,
@@ -52,12 +52,12 @@ function Discharge(props) {
                 //   <li dangerouslySetInnerHTML ={{__html: iPIB.cleanBlurb.outerHTML}}/> <p>- (next due {nextDue})</p>
                 // </>
                 <>
-                <li>{iPIB.service} (next due {nextDue})</li>
+                <li> - {iPIB.service} (next due {nextDue})</li>
               </>
               ) : (
                 <>
                   {/* <li dangerouslySetInnerHTML ={{__html: iPIB.cleanBlurb.outerHTML}}/> <p>- (booster in {iPIB.booster})</p> */}
-                  <li>{iPIB.service} (booster in {iPIB.booster})</li>
+                  <li> - {iPIB.service} (booster in {iPIB.booster})</li>
                 </>
               )}
             </>
