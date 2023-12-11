@@ -27,7 +27,7 @@ function Discharge(props) {
         It was a pleasure to see {props.petName} for a {props.reasonForVisit}.
       </p>
       {props.noAbnormalities === false ? (
-        <p>I am happy to report that {props.petName} has no abnormalities</p>
+        <p>There were no abnormalities on your pet's exam, which is great!</p>
       ) : null}
       {props.vaccineArray.length <= 0 ? null : (
         <p>
@@ -48,12 +48,16 @@ function Discharge(props) {
           return (
             <>
               {iPIB.nextDueYrs !== "" ? (
+                // <>
+                //   <li dangerouslySetInnerHTML ={{__html: iPIB.cleanBlurb.outerHTML}}/> <p>- (next due {nextDue})</p>
+                // </>
                 <>
-                  <li dangerouslySetInnerHTML ={{__html: iPIB.cleanBlurb.outerHTML}}/> <p>- (next due {nextDue})</p>
-                </>
+                <li>{iPIB.service} (next due {nextDue})</li>
+              </>
               ) : (
                 <>
-                  <li dangerouslySetInnerHTML ={{__html: iPIB.cleanBlurb.outerHTML}}/> <p>- (booster in {iPIB.booster})</p>
+                  {/* <li dangerouslySetInnerHTML ={{__html: iPIB.cleanBlurb.outerHTML}}/> <p>- (booster in {iPIB.booster})</p> */}
+                  <li>{iPIB.service} (booster in {iPIB.booster})</li>
                 </>
               )}
             </>
