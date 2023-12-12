@@ -66,7 +66,7 @@ function Discharge(props) {
       </ul>
       {props.standardProcArr.length <= 0 ? null : (
         <p>
-          {pronounsObject.heShe} received the following standard procedures
+          {pronounsObject.petName} received the following standard procedures
           during this appointment:
         </p>
       )}
@@ -78,7 +78,6 @@ function Discharge(props) {
         ).map((iPIB, i) => {
           // console.log(iPIB)
           // console.log(iPIB.cleanBlurb.innerHTML)
-
           return (
             <>
               <li dangerouslySetInnerHTML ={{__html: iPIB.cleanBlurb.innerHTML}}/>
