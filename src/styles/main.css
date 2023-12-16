@@ -1,26 +1,62 @@
-/* * {
+* {
     margin: 0;
     padding:0;
     box-sizing: border-box;
-} */
-
-body {
-    margin: 15px;
 }
 
-.initialScreenForm {
+.App {
+    min-height: 100vh;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
 }
-.form-input {
-    margin: 5px
+
+.form-container {
+    max-width: 95%;
+    border: 3px solid black;
+    margin: 15px;
+    .initialScreenForm {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 30px;
+        img {
+            width: 100%;
+        }
+    }
+    .discharge-report {
+        margin: 20px;
+        display: flex;
+        flex-direction: column;
+        #random-dog-img {
+            align-self: center;
+        }
+        #vaccine-list {
+            list-style-type: none;
+        }
+        /* #vaccine-list {
+            list-style-type: none !important;
+          }
+          #vaccine-list li:before {
+            content: '\2013' !important;
+            position: absolute !important;
+            margin-left: -5px !important;
+          } */
+        #surgery-websites {
+            margin-left: 10%;
+            word-wrap: break-word;
+        }
+    }
+    .form-input {
+        margin: 5px;
+        max-width: 100%;
+    }
+    .options {
+        display: flex;
+        justify-content: space-around;
+    }
 }
 
-.options {
-    display: flex;
-    justify-content: space-around;
-}
 
 h4 {
     border: 3px solid black;

@@ -14,7 +14,7 @@ function Discharge(props) {
 
   // console.log(pronounsObject.heShe, pronounsObject.himHer, pronounsObject.hisHers, pronounsObject.they)
   return (
-    <div>
+    <div className="discharge-report">
       {/* <button
         onClick={() => {
           navigator.clipboard.writeText(text);
@@ -22,22 +22,20 @@ function Discharge(props) {
       >
         Copy
       </button> */}
+      <img id="random-dog-img" width="200px" src={props.randomDogImage} />
       <p>
-        It was a pleasure to see {props.petName} today ({props.date}).{" "}
-        {pronounsObject.heShe} is a wonderful {props.petType} and we loved
-        seeing {pronounsObject.himHer.toLocaleLowerCase()} for{" "}
-        {props.reasonForVisit}.
+        It was a pleasure to see {props.petName} for a {props.reasonForVisit}.
       </p>
       {props.noAbnormalities === false ? (
-        <p>I am happy to report that {props.petName} has no abnormalities</p>
+        <p>There were no abnormalities on your pet's exam, which is great!</p>
       ) : null}
       {props.vaccineArray.length <= 0 ? null : (
         <p>
-          {pronounsObject.heShe} received the following vaccines during this
+          {props.petName} received the following vaccines during this
           appointment:
         </p>
       )}
-      <ul>
+      <ul id="vaccine-list">
       {stringToHTML(
           props.vaccineArray,
           pronounsObject,
@@ -50,12 +48,16 @@ function Discharge(props) {
           return (
             <>
               {iPIB.nextDueYrs !== "" ? (
+                // <>
+                //   <li dangerouslySetInnerHTML ={{__html: iPIB.cleanBlurb.outerHTML}}/> <p>- (next due {nextDue})</p>
+                // </>
                 <>
-                  <li dangerouslySetInnerHTML ={{__html: iPIB.cleanBlurb.outerHTML}}/> <p>- (next due {nextDue})</p>
-                </>
+                <li> - {iPIB.service} (next due {nextDue})</li>
+              </>
               ) : (
                 <>
-                  <li dangerouslySetInnerHTML ={{__html: iPIB.cleanBlurb.outerHTML}}/> <p>- (booster in {iPIB.booster})</p>
+                  {/* <li dangerouslySetInnerHTML ={{__html: iPIB.cleanBlurb.outerHTML}}/> <p>- (booster in {iPIB.booster})</p> */}
+                  <li> - {iPIB.service} (booster in {iPIB.booster})</li>
                 </>
               )}
             </>
@@ -64,7 +66,7 @@ function Discharge(props) {
       </ul>
       {props.standardProcArr.length <= 0 ? null : (
         <p>
-          {pronounsObject.heShe} received the following standard procedures
+          {pronounsObject.petName} received the following standard procedures
           during this appointment:
         </p>
       )}
@@ -74,12 +76,11 @@ function Discharge(props) {
           pronounsObject,
           props.petName
         ).map((iPIB, i) => {
-          console.log(iPIB)
-          console.log(iPIB.cleanBlurb.innerHTML)
-
+          // console.log(iPIB)
+          // console.log(iPIB.cleanBlurb.innerHTML)
           return (
             <>
-              <li dangerouslySetInnerHTML ={{__html: iPIB.cleanBlurb.outerHTML}}/>
+              <li dangerouslySetInnerHTML ={{__html: iPIB.cleanBlurb.innerHTML}}/>
             </>
           );
         })}

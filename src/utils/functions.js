@@ -1,23 +1,31 @@
 export const petPronouns = (maleOrFemale) => {
-  // console.log(maleOrFemale);
-
   if (maleOrFemale === "male") {
     let pronounsObject = {
-      heShe: "He",
-      himHer: "Him",
-      hisHer: "His",
-      hisHers: "His",
-      they: "They",
+      heShe: "he",
+      himHer: "him",
+      hisHer: "his",
+      hisHers: "his",
+      they: "they",
+      capHeShe: "He",
+      capHimHer: "Him",
+      capHisHer: "His",
+      capHisHers: "His",
+      capThey: "They",
     };
     // console.log(pronounsObject);
     return pronounsObject;
   } else {
     let pronounsObject = {
-      heShe: "She",
-      himHer: "Her",
-      hisHer: "Her",
-      hisHers: "Hers",
-      they: "They",
+      heShe: "she",
+      himHer: "her",
+      hisHer: "her",
+      hisHers: "hers",
+      they: "they",
+      capHeShe: "She",
+      capHimHer: "Her",
+      capHisHer: "Her",
+      capHisHers: "Hers",
+      capThey: "They",
     };
     // console.log(pronounsObject);
     return pronounsObject;
@@ -25,15 +33,15 @@ export const petPronouns = (maleOrFemale) => {
 };
 
 export const stringToHTML = ( servicesArr, pronounsObject, petName ) => { 
-  console.log(servicesArr)
+  // console.log(servicesArr)
   let dynamicBlurb = servicesArr.map((sA, i) => {
-    console.log(sA.domBlurb)
-    let replaceWords = sA.domBlurb.split("petName").join(petName).split("heShe").join(pronounsObject.heShe).split("himHer").join(pronounsObject.himHer).split("hisHers").join(pronounsObject.hisHers).split("hisHer").join(pronounsObject.hisHer);
-    console.log(replaceWords)
+    // console.log(sA.domBlurb)
+    let replaceWords = sA.domBlurb.split("petName").join(petName).split("heShe").join(pronounsObject.heShe).split("himHer").join(pronounsObject.himHer).split("hisHers").join(pronounsObject.hisHers).split("capHisHer").join(pronounsObject.capHisHer).split("capHeShe").join(pronounsObject.capHeShe).split("capHimHer").join(pronounsObject.capHimHer).split("capHisHers").join(pronounsObject.capHisHers).split("hisHer").join(pronounsObject.hisHer).split("capThey").join(pronounsObject.capThey);
+    // console.log(replaceWords)
     let parser = new DOMParser();
     let doc = parser.parseFromString(replaceWords, 'text/html')
     sA.cleanBlurb = doc.body
-    console.log(sA.cleanBlurb)
+    // console.log(sA.cleanBlurb)
     return sA
 
   });

@@ -1,106 +1,110 @@
 export const vaccineInfo = [
   {
-    service: "Rabies Vaccine (1 yr)",
+    service: "Rabies Vaccine",
     nextDue: "1 year from when vaccine was administered",
-    nextDueYrs: "1",
-    domBlurb: "heShe This is the domBlurb about Rabies Vaccine (1 yr)!",
+    nextDueYrs: "(1 yr)",
+    domBlurb: "Next due - ",
   },
   {
     service: "Rabies Vaccine (3 yr)",
     nextDue: "3 years from when vaccine was administered",
     nextDueYrs: "3",
-    domBlurb: "This is the domBlurb about petName's Rabies Vaccine (3 yr)!",
+    domBlurb: "Next due - ",
+
   },
   {
     service: "Pure Vax Rabies (1 yr)",
     nextDue: "1 year from when vaccine was administered",
     nextDueYrs: "1",
-    domBlurb: "This is the domBlurb about Pure Vax Rabies (1 yr)!",
+    domBlurb: "Next due - ",
   },
   {
     service: "FVRCP (1 yr)",
     nextDue: "1 year from when vaccine was administered",
     nextDueYrs: "1",
-    domBlurb: "This is the domBlurb about FVRCP (1 yr)!",
+    domBlurb: "Next due - ",
   },
   {
     service: "FVRCP (booster)",
     nextDue: "3-4 weeks from booster",
     nextDueYrs: "",
     booster: "3-4 weeks",
-    domBlurb: "This is the domBlurb about FVRCP (booster)!",
+    domBlurb: "Next due - ",
   },
   {
     service: "FVRCP (3 yr)",
     nextDue: "3 years from when vaccine was administered",
     nextDueYrs: "3",
-    domBlurb: "This is the domBlurb about FVRCP (3 yr)!",
+    domBlurb: "Next due - ",
   },
   {
     service: "Bordatella (1 yr)",
     nextDue: "1 year from when vaccine was administered",
     nextDueYrs: "1",
-    domBlurb: "This is the domBlurb about Bordatella (1 yr)!",
+    domBlurb: "Next due - ",
   },
   {
     service: "FeLV (1 yr)",
     nextDue: "1 year from when vaccine was administered",
     nextDueYrs: "1",
-    domBlurb: "This is the domBlurb about FeLV (1 yr)!",
+    domBlurb: "Next due - ",
   },
   {
     service: "FeLV (booster)",
     nextDue: "3-4 weeks from booster",
     nextDueYrs: "",
     booster: "3-4 weeks",
-    domBlurb: "This is the domBlurb about FeLV (booster)!",
+    domBlurb: "Next due - ",
   },
   {
     service: "DHPP (1 yr)",
     nextDue: "1 year from when vaccine was administered",
     nextDueYrs: "1",
-    domBlurb: "This is the domBlurb about DHPP (1 yr)!",
+    domBlurb: "Next due - ",
   },
   {
     service: "DHPP (booster)",
     nextDue: "3-4 weeks from booster",
     nextDueYrs: "",
     booster: "3-4 weeks",
-    domBlurb: "This is the domBlurb about DHPP (booster)!",
+    domBlurb: "Next due - ",
   },
   {
     service: "DHPP (3yr)",
     nextDue: "3 years from when vaccine was administered",
     nextDueYrs: "3",
-    domBlurb: "This is the domBlurb about DHPP (3yr)!",
+    domBlurb: "Next due - ",
   },
   {
     service: "Lepto (1 yr)",
     nextDue: "1 year from when vaccine was administered",
     nextDueYrs: "1",
-    domBlurb: "This is the domBlurb about Lepto (1 yr)!",
+    domBlurb: "Next due - ",
   },
   {
     service: "Lepto (booster)",
     nextDue: "3-4 weeks from booster",
     nextDueYrs: "",
     booster: "3-4 weeks",
-    domBlurb: "This is the domBlurb about Lepto (booster)!",
+    domBlurb: "Next due - ",
   },
 ];
 
+// may be able to get rid of blurb since I ultimately use domBlurb
 export const standardServicesInfo = [
-  {
-    service: "TEST",
-    blurb: "heShe hisHer hisHers himHer hisHer heShe hisHers hisHer heShe",
-  },
   {
     service: "Dewormer",
     blurb:
-      "petName also heShe received a dose of oral deworming medication during this appointment. We have sent home an additional dose of this same medication which should be given in 14 days. Please give the provided dose by mouth as instructed on the label.",
-      domBlurb: "<p>petName also received a dose of oral deworming medication during this appointment. We have sent home an additional dose of this same medication which should be given in 14 days. Please give the provided dose by mouth as instructed on the label</p><p>knlf sdf dlfka ads heShe lkasdfnlk asdlklkadflnladnlzdf lakdflkdllasflknalsd himHer</p><p>knlf sdf dlfka ads heShe lkasdfnlk asdlklkadflnladnlzdf lakdflkdllasflknalsd himHer</p>"
+      "petName also received a dose of oral deworming medication during this appointment. We have sent home an additional dose of this same medication, which should be given in 14 days. Please give the provided dose by mouth as instructed on the label.",
+      domBlurb: "<p>petName also received a dose of oral deworming medication during this appointment. We have sent home an additional dose of this same medication which should be given in 14 days. Please give the provided dose by mouth as instructed on the label</p>"
         
       ,
+  },
+  {
+    service: "Dewormer Sent Home",
+    blurb:
+      "We have sent you with two doses of an oral dewormer. You can give himHer the first dose by mouth today. The second dose should be given 14 days after the first. Please give the provided doses by mouth as instructed on the label.",
+      domBlurb: "<p>We have sent you with two doses of an oral dewormer. You can give himHer the first dose by mouth today. The second dose should be given 14 days after the first. Please give the provided doses by mouth as instructed on the label.</p>"
   },
   {
     service: "Microchip Placed",
@@ -127,7 +131,7 @@ export const standardServicesInfo = [
         - FeLV results: Negative 
         - FIV results: Negative 
         Following exposure to either virus, it can take 1 to 3 months for an infection to develop. One negative test for FELV or FIV does not guarantee that a cat is truly negative. Due to lag time between a potential initial infection and the development of positive test results, retesting for confirmation of negative FIV and FeLV status may be recommended in the future.`,
-    domBlurb: "<li><p>An FeLV / FIV test was performed on petName. The results are listed below:</p><ul><li>1FeLV results: Negative</li><li>2FIV results: Negative</li></ul><p>Following exposure to either virus, it can take 1 to 3 months for an infection to develop for himHer. One negative test for FELV or FIV does not guarantee that a cat is truly negative. Due to lag time between a potential initial infection and the development of positive test results, retesting for confirmation of negative FIV and FeLV status may be recommended in the future.</p></li>",
+    domBlurb: "<p>An FeLV / FIV test was performed on petName. The results are listed below:</p><ul><li>1FeLV results: Negative</li><li>2FIV results: Negative</li></ul><p>Following exposure to either virus, it can take 1 to 3 months for an infection to develop for himHer. One negative test for FELV or FIV does not guarantee that a cat is truly negative. Due to lag time between a potential initial infection and the development of positive test results, retesting for confirmation of negative FIV and FeLV status may be recommended in the future.</p>",
   },
   {
     service: "FeLV Vaccine Info",
@@ -152,5 +156,17 @@ export const standardServicesInfo = [
     blurb:
       "As heShe continues to age, you may consider starting to brush his/her teeth using toothpaste formulated for pets. If this is not possible, adding some dental treats, dental wipes or gel daily can help with this as well. Your pet may eventually need a dental procedure done but keeping up on oral care may help prolong the time until this is needed. You can check out the VOHC.org website for dentist approved treats and toys.",
       domBlurb: "<p>As heShe continues to age, you may consider starting to brush his/her teeth using toothpaste formulated for pets. If this is not possible, adding some dental treats, dental wipes or gel daily can help with this as well. Your pet may eventually need a dental procedure done but keeping up on oral care may help prolong the time until this is needed. You can check out the VOHC.org website for dentist approved treats and toys.</p>"
+  },
+  {
+    service: "Pre-Surgical High Risk - Brachycephalic",
+    blurb:
+      "As discussed, petName falls into the category of \"high risk\" surgical patients based on his/her breed and brachycephalic conformation, meaning a short, flat muzzle among other characteristics. Common brachycephalic breeds may include, but are not limited to, Himalayan, Persian, Exotic/British Shorthair, French Bulldog, English Bulldog, Boston Terrier, Pug, Pekingese, Japanese Chin, Boxer, and some individuals of bully breeds (Pitbull, Staffordshire). Performing a spay or neuter on a brachycephalic animal carries a higher risk of complications. In addition to the normal risks of surgery, brachycephalic animals are at a higher risk for following issues: laryngeal collapse, respiratory distress, aspiration pneumonia (inhaled fluid causing pneumonia) and death. Seattle Humane is a high volume, high quality spay/neuter facility that does not provide patient specific anesthetic protocols or post-operative hospitalization in the event of respiratory complications. If an emergency occurs, owners must pursue, on their own accord, hospitalization for their animal with an emergency clinic. If complications do occur, failure to intensively and emergently treat this condition can result in death. You will be asked to sign a waiver on the morning of petName's surgery confirming that you understand this information. If you elect to pursue surgery elsewhere, please let us know as soon as possible but no later than 48 hours prior to the scheduled surgery for a refund of your deposit. Cancellations made within 48 hours of surgery may be responsible for the full cost of the procedure.",
+      domBlurb: "<p>As discussed, petName falls into the category of \"high risk\" surgical patients based on his/her breed and brachycephalic conformation, meaning a short, flat muzzle among other characteristics. Common brachycephalic breeds may include, but are not limited to, Himalayan, Persian, Exotic/British Shorthair, French Bulldog, English Bulldog, Boston Terrier, Pug, Pekingese, Japanese Chin, Boxer, and some individuals of bully breeds (Pitbull, Staffordshire). Performing a spay or neuter on a brachycephalic animal carries a higher risk of complications. In addition to the normal risks of surgery, brachycephalic animals are at a higher risk for following issues: laryngeal collapse, respiratory distress, aspiration pneumonia (inhaled fluid causing pneumonia) and death. Seattle Humane is a high volume, high quality spay/neuter facility that does not provide patient specific anesthetic protocols or post-operative hospitalization in the event of respiratory complications. If an emergency occurs, owners must pursue, on their own accord, hospitalization for their animal with an emergency clinic. If complications do occur, failure to intensively and emergently treat this condition can result in death. You will be asked to sign a waiver on the morning of petName's surgery confirming that you understand this information. If you elect to pursue surgery elsewhere, please let us know as soon as possible but no later than 48 hours prior to the scheduled surgery for a refund of your deposit. Cancellations made within 48 hours of surgery may be responsible for the full cost of the procedure.</p>"
+  },
+  {
+    service: "Pre-Surgical High Risk - Cardiac Cat - Ragdoll",
+    blurb:
+      "As discussed, petName falls into the category of \"high risk\" surgical patients based on his/her breed, given the increased prevalence of significant cardiac disease in Ragdoll cats. Unfortunately Seattle Humane does not provide diagnostics prior to or following surgery to determine if cardiac disease is present. Seattle Humane is a high quality, high volume spay neuter facility that uses a standardized drug protocol and does not have the ability to tailor anesthetic plans for specific patients. Seattle Humane also does not provide intra-operative blood pressure, ECG, or other advanced anesthetic monitoring. In addition to the standard risks of surgery, performing a spay or neuter on an animal with cardiac disease carries a higher risk of complications, including intra-operative hypotension (low blood pressure - prolonged hypotension can lead to organ damage), arrhythmia (abnormal heart rhythm), congestive heart failure, cardiac arrest and death. If you are concerned, follow up with a full service or primary care veterinarian is recommended to discuss available additional diagnostics (cardiology referral, x-rays, ECG, etc.) to evaluate for underlying cardiac disease including the associated anesthetic risks or if you are seeking tailored drug protocols or full anesthetic monitoring. Additional information about the cardiac risks associated with Ragdoll cats can be found at the following websites:",
+      domBlurb: "<p>As discussed, petName falls into the category of \"high risk\" surgical patients based on his/her breed, given the increased prevalence of significant cardiac disease in Ragdoll cats. Unfortunately Seattle Humane does not provide diagnostics prior to or following surgery to determine if cardiac disease is present. Seattle Humane is a high quality, high volume spay neuter facility that uses a standardized drug protocol and does not have the ability to tailor anesthetic plans for specific patients. Seattle Humane also does not provide intra-operative blood pressure, ECG, or other advanced anesthetic monitoring. In addition to the standard risks of surgery, performing a spay or neuter on an animal with cardiac disease carries a higher risk of complications, including intra-operative hypotension (low blood pressure - prolonged hypotension can lead to organ damage), arrhythmia (abnormal heart rhythm), congestive heart failure, cardiac arrest and death. If you are concerned, follow up with a full service or primary care veterinarian is recommended to discuss available additional diagnostics (cardiology referral, x-rays, ECG, etc.) to evaluate for underlying cardiac disease including the associated anesthetic risks or if you are seeking tailored drug protocols or full anesthetic monitoring. Additional information about the cardiac risks associated with Ragdoll cats can be found at the following websites: following websites:<ul id=\"surgery-websites\"><li><a href=\"https://vgl.ucdavis.edu/test/ragdoll-hcm\" target=\"_blank\">https://vgl.ucdavis.edu/test/ragdoll-hcm</a></li><li><a href=\"https://hospital.cvm.ncsu.edu/services/small-animals/genetics/ragdoll-cat-hypertrophic-cardiomyopathy-hcm/\" target=\"_blank\">https://hospital.cvm.ncsu.edu/services/small-animals/genetics/ragdoll-cat-hypertrophic-cardiomyopathy-hcm/</a></li><li><a href=\"https://vcahospitals.com/know-your-pet/cardiomyopathy-in-cats\" target=\"_blank\">https://vcahospitals.com/know-your-pet/cardiomyopathy-in-cats</a></li><li><a href=\"x?pid=19239&id=8661009\" target=\"_blank\">https://veterinarypartner.vin.com/default.aspx?pid=19239&id=8661009</a></li></ul></p>"
   },
 ];
