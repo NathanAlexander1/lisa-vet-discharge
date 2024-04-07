@@ -204,3 +204,15 @@ export const abnormalitiesInfo = [
   { abnormalityBlurb: "Tapeworms" },
   { abnormalityBlurb: "Mild URI" },
 ];
+
+export const remindersInfo = [
+  {
+    reminderBlurb: "Reminder1"
+  },
+  {
+    reminderBlurb: "Reminder2"
+  },
+  {
+    reminderBlurb: "Reminder3"
+  },
+];

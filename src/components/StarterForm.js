@@ -4,7 +4,7 @@ import Moment from "react-moment";
 import moment from "moment";
 import Discharge from "./Discharge";
 import Vaccine from "./Vaccine";
-import { vaccineInfo, standardServicesInfo, abnormalitiesInfo } from "../const";
+import { vaccineInfo, standardServicesInfo, abnormalitiesInfo, remindersInfo } from "../const";
 import { updateMulticheckArr } from "../utils/functions";
 
 function StarterForm() {
@@ -14,9 +14,11 @@ function StarterForm() {
   const [petSex, setPetSex] = useState("");
   const [date, setDate] = useState(moment().format("MM-DD-YYYY"));
   const [reasonForVisit, setReasonForVisit] = useState("");
-  const [noAbnormalities, setNoAbnormalities] = useState(false);
   const [vaccines, setVaccines] = useState(false);
   const [appliedStrdPrc, setAppliedStrdPrc] = useState(false);
+  const [noAbnormalities, setNoAbnormalities] = useState(false);
+  const [noReminders, setNoReminders] = useState(false);
+
   const [checkedStateOne, setCheckedStateOne] = useState(
     new Array(vaccineInfo.length).fill(false)
   );
@@ -26,9 +28,13 @@ function StarterForm() {
   const [checkedStateThree, setCheckedStateThree] = useState(
     new Array(abnormalitiesInfo.length).fill(false)
   );
+  const [checkedStateFour, setCheckedStateFour] = useState(
+    new Array(remindersInfo.length).fill(false)
+  );
   const [vaccineArray, setVaccineArray] = useState([]);
   const [standardProcArr, setStandardProcArr] = useState([]);
   const [abnormalityArr, setAbnormalityArr] = useState([]);
+  const [remindersArr, setRemindersArr] = useState([]);
   const [showDischarge, setShowDischarge] = useState(false);
   // useEffect(() => {
   //   API.getRandomDog().then((data) => {
@@ -173,7 +179,7 @@ function StarterForm() {
               })}
             </>
           )}
-                    <label htmlFor="abnormalities">Abnormalities?</label>
+          <label htmlFor="abnormalities">Abnormalities?</label>
           <input
             className="form-input"
             id="abnormalities"
@@ -183,17 +189,6 @@ function StarterForm() {
             checked={noAbnormalities}
           />
           {noAbnormalities === false ? null : (
-            // <select multiple>
-            //   <option value="overweight dog">Overweight Dog</option>
-            //   <option value="overweight cat">Overweight Cat</option>
-            //   <option value="mild dental disease">Mild Dental Disease</option>
-            //   <option value="moderate to severe dental disease">
-            //     Moderate to Severe Dental Disease
-            //   </option>
-            //   <option value="fleas">Fleas</option>
-            //   <option value="tapeworms">Tapeworms</option>
-            //   <option value="mild URI">Mild URI</option>
-            // </select>
             <>
               {abnormalitiesInfo.map((ai, i) => {
                 return (
@@ -219,6 +214,43 @@ function StarterForm() {
               })}
             </>
           )}
+
+
+          <label htmlFor="abnormalities">Reminders?</label>
+          <input
+            className="form-input"
+            id="reminders"
+            name="reminders"
+            onChange={(e) => setNoReminders(e.target.checked)}
+            type="checkbox"
+            checked={noReminders}
+          />
+          {noReminders === false ? null : (
+            <>
+              {remindersInfo.map((ri, i) => {
+                return (
+                  <div>
+                    <input
+                      id={ri.reminderBlurb}
+                      type="checkbox"
+                      name={ri.reminderBlurb}
+                      key={"reminder" + i}
+                      checked={checkedStateFour[i]}
+                      onChange={() =>
+                        updateMulticheckArr(
+                          i,
+                          remindersInfo,
+                          [checkedStateFour, setCheckedStateFour],
+                          [remindersArr, setRemindersArr]
+                        )
+                      }
+                    />
+                    <label htmlFor={ri.reminderBlurb}>{ri.reminderBlurb}</label>
+                  </div>
+                );
+              })}
+            </>
+          )}
           <button>Proceed</button>
         </form>
       ) : (
@@ -233,6 +265,7 @@ function StarterForm() {
           vaccineArray={vaccineArray}
           standardProcArr={standardProcArr}
           abnormalities={abnormalityArr}
+          reminders={remindersArr}
         />
       )}
     </div>
