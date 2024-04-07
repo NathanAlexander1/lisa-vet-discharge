@@ -68,7 +68,7 @@ function Discharge(props) {
             during this appointment:
           </p>
         )}
-        <ul>
+        <ul id="standardProcList">
           {stringToHTML(
             props.standardProcArr,
             pronounsObject,

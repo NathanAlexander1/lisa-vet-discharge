@@ -4,8 +4,8 @@ import Moment from "react-moment";
 import moment from "moment";
 import Discharge from "./Discharge";
 import Vaccine from "./Vaccine";
-import { vaccineInfo, standardServicesInfo } from "../const";
-import { updateMulticheckArr } from "../utils/functions"
+import { vaccineInfo, standardServicesInfo, abnormalitiesInfo } from "../const";
+import { updateMulticheckArr } from "../utils/functions";
 
 function StarterForm() {
   // const [randomDogImage, setRandomDogImage] = useState({});
@@ -23,15 +23,19 @@ function StarterForm() {
   const [checkedStateTwo, setCheckedStateTwo] = useState(
     new Array(standardServicesInfo.length).fill(false)
   );
+  const [checkedStateThree, setCheckedStateThree] = useState(
+    new Array(abnormalitiesInfo.length).fill(false)
+  );
   const [vaccineArray, setVaccineArray] = useState([]);
   const [standardProcArr, setStandardProcArr] = useState([]);
+  const [abnormalityArr, setAbnormalityArr] = useState([]);
   const [showDischarge, setShowDischarge] = useState(false);
   // useEffect(() => {
   //   API.getRandomDog().then((data) => {
   //     console.log(data);
   //     setRandomDogImage(data);
   //   });
-  
+
   // }, []);
   const handleInitialScreenForm = (e) => {
     e.preventDefault();
@@ -105,17 +109,41 @@ function StarterForm() {
             checked={noAbnormalities}
           />
           {noAbnormalities === false ? null : (
-            <select multiple>
-              <option value="overweight dog">Overweight Dog</option>
-              <option value="overweight cat">Overweight Cat</option>
-              <option value="mild dental disease">Mild Dental Disease</option>
-              <option value="moderate to severe dental disease">
-                Moderate to Severe Dental Disease
-              </option>
-              <option value="fleas">Fleas</option>
-              <option value="tapeworms">Tapeworms</option>
-              <option value="mild URI">Mild URI</option>
-            </select>
+            // <select multiple>
+            //   <option value="overweight dog">Overweight Dog</option>
+            //   <option value="overweight cat">Overweight Cat</option>
+            //   <option value="mild dental disease">Mild Dental Disease</option>
+            //   <option value="moderate to severe dental disease">
+            //     Moderate to Severe Dental Disease
+            //   </option>
+            //   <option value="fleas">Fleas</option>
+            //   <option value="tapeworms">Tapeworms</option>
+            //   <option value="mild URI">Mild URI</option>
+            // </select>
+            <>
+              {abnormalitiesInfo.map((ai, i) => {
+                return (
+                  <div>
+                    <input
+                      id={ai.abnormalityBlurb}
+                      type="checkbox"
+                      name={ai.abnormalityBlurb}
+                      key={"abnormality" + i}
+                      checked={checkedStateThree[i]}
+                      onChange={() =>
+                        updateMulticheckArr(
+                          i,
+                          abnormalitiesInfo,
+                          [checkedStateThree, setCheckedStateThree],
+                          [abnormalityArr, setAbnormalityArr]
+                        )
+                      }
+                    />
+                    <label htmlFor={ai.abnormalityBlurb}>{ai.abnormalityBlurb}</label>
+                  </div>
+                );
+              })}
+            </>
           )}
           {/* < Vaccine /> */}
           <label htmlFor="vaccines">Vaccines?</label>
@@ -138,7 +166,14 @@ function StarterForm() {
                       name={vi.service}
                       key={"vaccine" + i}
                       checked={checkedStateOne[i]}
-                      onChange={() => updateMulticheckArr(i, vaccineInfo, [checkedStateOne, setCheckedStateOne], [vaccineArray, setVaccineArray])}
+                      onChange={() =>
+                        updateMulticheckArr(
+                          i,
+                          vaccineInfo,
+                          [checkedStateOne, setCheckedStateOne],
+                          [vaccineArray, setVaccineArray]
+                        )
+                      }
                     />
                     <label htmlFor={vi.service}>{vi.service}</label>
                   </div>
@@ -169,7 +204,14 @@ function StarterForm() {
                       name={sSI.service}
                       key={"Standard Service" + i}
                       checked={checkedStateTwo[i]}
-                      onChange={() => updateMulticheckArr(i, standardServicesInfo, [checkedStateTwo, setCheckedStateTwo], [standardProcArr, setStandardProcArr])}
+                      onChange={() =>
+                        updateMulticheckArr(
+                          i,
+                          standardServicesInfo,
+                          [checkedStateTwo, setCheckedStateTwo],
+                          [standardProcArr, setStandardProcArr]
+                        )
+                      }
                     />
                     <label htmlFor={sSI.service}>{sSI.service}</label>
                   </div>
@@ -190,6 +232,7 @@ function StarterForm() {
           noAbnormalities={noAbnormalities}
           vaccineArray={vaccineArray}
           standardProcArr={standardProcArr}
+          abnormalities={abnormalityArr}
         />
       )}
     </div>

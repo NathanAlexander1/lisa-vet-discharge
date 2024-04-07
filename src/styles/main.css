@@ -34,6 +34,10 @@
         #vaccine-list {
             list-style-type: none;
         }
+        #standardProcList {
+            list-style-type: none;
+
+        }
         /* #vaccine-list {
             list-style-type: none !important;
           }
