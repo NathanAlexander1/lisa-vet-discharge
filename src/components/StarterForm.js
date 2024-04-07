@@ -99,52 +99,6 @@ function StarterForm() {
             </option>
             <option value="a post-adoption exam">Post-adoption Exam</option>
           </select>
-          <label htmlFor="abnormalities">Abnormalities?</label>
-          <input
-            className="form-input"
-            id="abnormalities"
-            name="abnormalities"
-            onChange={(e) => setNoAbnormalities(e.target.checked)}
-            type="checkbox"
-            checked={noAbnormalities}
-          />
-          {noAbnormalities === false ? null : (
-            // <select multiple>
-            //   <option value="overweight dog">Overweight Dog</option>
-            //   <option value="overweight cat">Overweight Cat</option>
-            //   <option value="mild dental disease">Mild Dental Disease</option>
-            //   <option value="moderate to severe dental disease">
-            //     Moderate to Severe Dental Disease
-            //   </option>
-            //   <option value="fleas">Fleas</option>
-            //   <option value="tapeworms">Tapeworms</option>
-            //   <option value="mild URI">Mild URI</option>
-            // </select>
-            <>
-              {abnormalitiesInfo.map((ai, i) => {
-                return (
-                  <div>
-                    <input
-                      id={ai.abnormalityBlurb}
-                      type="checkbox"
-                      name={ai.abnormalityBlurb}
-                      key={"abnormality" + i}
-                      checked={checkedStateThree[i]}
-                      onChange={() =>
-                        updateMulticheckArr(
-                          i,
-                          abnormalitiesInfo,
-                          [checkedStateThree, setCheckedStateThree],
-                          [abnormalityArr, setAbnormalityArr]
-                        )
-                      }
-                    />
-                    <label htmlFor={ai.abnormalityBlurb}>{ai.abnormalityBlurb}</label>
-                  </div>
-                );
-              })}
-            </>
-          )}
           {/* < Vaccine /> */}
           <label htmlFor="vaccines">Vaccines?</label>
           <input
@@ -214,6 +168,52 @@ function StarterForm() {
                       }
                     />
                     <label htmlFor={sSI.service}>{sSI.service}</label>
+                  </div>
+                );
+              })}
+            </>
+          )}
+                    <label htmlFor="abnormalities">Abnormalities?</label>
+          <input
+            className="form-input"
+            id="abnormalities"
+            name="abnormalities"
+            onChange={(e) => setNoAbnormalities(e.target.checked)}
+            type="checkbox"
+            checked={noAbnormalities}
+          />
+          {noAbnormalities === false ? null : (
+            // <select multiple>
+            //   <option value="overweight dog">Overweight Dog</option>
+            //   <option value="overweight cat">Overweight Cat</option>
+            //   <option value="mild dental disease">Mild Dental Disease</option>
+            //   <option value="moderate to severe dental disease">
+            //     Moderate to Severe Dental Disease
+            //   </option>
+            //   <option value="fleas">Fleas</option>
+            //   <option value="tapeworms">Tapeworms</option>
+            //   <option value="mild URI">Mild URI</option>
+            // </select>
+            <>
+              {abnormalitiesInfo.map((ai, i) => {
+                return (
+                  <div>
+                    <input
+                      id={ai.abnormalityBlurb}
+                      type="checkbox"
+                      name={ai.abnormalityBlurb}
+                      key={"abnormality" + i}
+                      checked={checkedStateThree[i]}
+                      onChange={() =>
+                        updateMulticheckArr(
+                          i,
+                          abnormalitiesInfo,
+                          [checkedStateThree, setCheckedStateThree],
+                          [abnormalityArr, setAbnormalityArr]
+                        )
+                      }
+                    />
+                    <label htmlFor={ai.abnormalityBlurb}>{ai.abnormalityBlurb}</label>
                   </div>
                 );
               })}
