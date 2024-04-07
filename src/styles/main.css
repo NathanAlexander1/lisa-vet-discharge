@@ -23,6 +23,12 @@
         img {
             width: 100%;
         }
+        .section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 25px;
+        }
     }
     .discharge-report {
         margin: 20px;
