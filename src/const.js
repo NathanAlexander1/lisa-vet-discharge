@@ -196,23 +196,27 @@ export const standardServicesInfo = [
 export const abnormalitiesInfo = [
   {
     abnormalityBlurb: "Overweight Dog",
+    domBlurb: "<p>Overweight Dog</p>",
   },
-  { abnormalityBlurb: "Overweight Cat" },
-  { abnormalityBlurb: "Mild Dental Disease" },
-  { abnormalityBlurb: "Moderate to severe dental disease" },
-  { abnormalityBlurb: "Fleas" },
-  { abnormalityBlurb: "Tapeworms" },
-  { abnormalityBlurb: "Mild URI" },
+  { abnormalityBlurb: "Overweight Cat", domBlurb: "<p>Overweight Cat</p>" },
+  { abnormalityBlurb: "Mild Dental Disease", domBlurb: "<p>Mild Dental Disease</p>" },
+  {
+    abnormalityBlurb: "Moderate to severe dental disease",
+    domBlurb: "<p>Moderate to severe dental disease</p>",
+  },
+  { abnormalityBlurb: "Fleas", domBlurb: "<p>Fleas</p>" },
+  { abnormalityBlurb: "Tapeworms", domBlurb: "<p>Tapeworms</p>" },
+  { abnormalityBlurb: "Mild URI", domBlurb: "<p>Mild URI</p>" },
 ];
 
 export const remindersInfo = [
   {
-    reminderBlurb: "Reminder1"
+    reminderBlurb: "Reminder1", domBlurb: "<p>Reminder1</p>" 
   },
   {
-    reminderBlurb: "Reminder2"
+    reminderBlurb: "Reminder2", domBlurb: "<p>Reminder2</p>"
   },
   {
-    reminderBlurb: "Reminder3"
+    reminderBlurb: "Reminder3",domBlurb: "<p>Reminder3</p>"
   },
 ];

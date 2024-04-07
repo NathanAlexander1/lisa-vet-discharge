@@ -37,12 +37,8 @@
         #random-dog-img {
             align-self: center;
         }
-        #vaccine-list {
+        #vaccine-list, #standardProcList, #abnormalitiesList, #remindersList {
             list-style-type: none;
-        }
-        #standardProcList {
-            list-style-type: none;
-
         }
         /* #vaccine-list {
             list-style-type: none !important;

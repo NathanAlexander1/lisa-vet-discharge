@@ -4,25 +4,25 @@ import moment from "moment";
 import { petPronouns, stringToHTML } from "../utils/functions";
 
 function Discharge(props) {
-  console.log(props)
+  console.log(props);
   const [pronounsObject, setPronounsObject] = useState(
     petPronouns(props.petSex)
   );
   const copyOutput = () => {
-    let report = document.getElementById('discharge-output').innerText;
-    console.log(report)
+    let report = document.getElementById("discharge-output").innerText;
+    console.log(report);
     navigator.clipboard.writeText(report);
   };
   return (
     <div className="discharge-report">
-      <img id="random-dog-img" width="200px" src={props.randomDogImage} />
+      {/* <img id="random-dog-img" width="200px" src={props.randomDogImage} /> */}
       <div id="discharge-output">
         <p>
           It was a pleasure to see {props.petName} for a {props.reasonForVisit}.
         </p>
-        {props.noAbnormalities === false ? (
+        {/* {props.noAbnormalities === false ? (
           <p>There were no abnormalities on your pet's exam, which is great!</p>
-        ) : null}
+        ) : null} */}
         {props.vaccineArray.length <= 0 ? null : (
           <p>
             {props.petName} received the following vaccines during this
@@ -71,6 +71,67 @@ function Discharge(props) {
         <ul id="standardProcList">
           {stringToHTML(
             props.standardProcArr,
+            pronounsObject,
+            props.petName
+          ).map((iPIB, i) => {
+            // console.log(iPIB)
+            // console.log(iPIB.cleanBlurb.innerHTML)
+            return (
+              <>
+                <li
+                  dangerouslySetInnerHTML={{
+                    __html: iPIB.cleanBlurb.innerHTML,
+                  }}
+                />
+              </>
+            );
+          })}
+        </ul>
+        {props.abnormalities.length <= 0 ? (
+          <p>There were no abnormalities on your pet's exam, which is great!</p>
+        ) : (
+          <p>
+            We noticed the following abnormalities during {props.petName}'s
+            appointmnet:
+          </p>
+        )}
+        <ul id="abnormalitiesList">
+          {stringToHTML(
+            props.abnormalities,
+            pronounsObject,
+            props.petName
+          ).map((iPIB, i) => {
+            // console.log(iPIB)
+            // console.log(iPIB.cleanBlurb.innerHTML)
+            return (
+              <>
+                <li
+                  dangerouslySetInnerHTML={{
+                    __html: iPIB.cleanBlurb.innerHTML,
+                  }}
+                />
+              </>
+            );
+          })}
+        </ul>
+        {props.customBlurb === "" ? (
+          null
+        ) : (
+          <p>
+            {props.customBlurb}
+          </p>
+        )}
+        {props.reminders.length <= 0 ? (
+          null
+        ) : (
+          <p>
+            We want to remind you of the following regarding {props.petName}'s
+            appointment:
+          </p>
+        )}
+        <ul id="remindersList">
+          {stringToHTML(
+            props.reminders,
             pronounsObject,
             props.petName
           ).map((iPIB, i) => {
