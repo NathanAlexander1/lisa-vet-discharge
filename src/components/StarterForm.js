@@ -55,6 +55,11 @@ function StarterForm() {
   //   });
 
   // }, []);
+
+  const handleDateChange = (e) => {
+    setDate(e.target.value);
+  }
+
   const handleInitialScreenForm = (e) => {
     e.preventDefault();
     setShowDischarge(true);
@@ -115,9 +120,7 @@ function StarterForm() {
           </select>
           <input
             className="form-input"
-            onChange={(e) =>
-              setDate(moment(e.target.value).format("MM-DD-YYYY"))
-            }
+            onChange={handleDateChange}
             type="date"
             id="start"
             name="date"

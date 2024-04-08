@@ -3,7 +3,7 @@ export const vaccineInfo = [
     service: "Rabies vaccine (1 yr)",
     serviceWithoutYears: "Rabies vaccine",
     nextDue: "1 year from when vaccine was administered",
-    nextDueYrs: "(1 yr)",
+    nextDueYrs: "1",
     domBlurb: "Next due - ",
   },
   {
