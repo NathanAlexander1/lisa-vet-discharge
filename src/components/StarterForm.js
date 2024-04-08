@@ -44,6 +44,9 @@ function StarterForm() {
   const [remindersArr, setRemindersArr] = useState([]);
   const [customBlurb, setCustomBlurb] = useState("");
 
+  const [textareaValue, setTextareaValue] = useState("");
+  const [textareaValuesArray, setTextareaValuesArray] = useState([]);
+
   const [showDischarge, setShowDischarge] = useState(false);
   // useEffect(() => {
   //   API.getRandomDog().then((data) => {
@@ -58,12 +61,26 @@ function StarterForm() {
   };
 
   const handleTextArea = (event) => {
-    console.log(event.target.value)
-    setCustomBlurb(event.target.value)
-    console.log(customBlurb)
+    console.log(event.target.value);
+    setCustomBlurb(event.target.value);
+    console.log(customBlurb);
     navigator.clipboard.writeText(customBlurb);
+  };
 
-  }
+  const handleTextareaChange = (event) => {
+    setTextareaValue(event.target.value);
+  };
+
+  const handleButtonClick = () => {
+    if (textareaValue.trim() !== "") {
+      setTextareaValuesArray((prevArray) => [
+        ...prevArray,
+        { domBlurb: textareaValue.trim() },
+      ]);
+      setTextareaValue(""); // Clear the textarea after adding its value to the array
+    }
+    console.log(textareaValuesArray);
+  };
 
   return (
     <div className="form-container">
@@ -251,37 +268,44 @@ function StarterForm() {
             />
             {noCustom === false ? null : (
               <>
-                <textarea value={customBlurb} onChange={handleTextArea} placeholder="Enter text here" id="customBlurb" name="customBlurb" rows="4" cols="50">
-                </textarea>
-          
-
-                {/* {abnormalitiesInfo.map((ai, i) => {
-                  return (
-                    <div>
-                      <input
-                        id={ai.abnormalityBlurb}
-                        type="checkbox"
-                        name={ai.abnormalityBlurb}
-                        key={"abnormality" + i}
-                        checked={checkedStateThree[i]}
-                        onChange={() =>
-                          updateMulticheckArr(
-                            i,
-                            abnormalitiesInfo,
-                            [checkedStateThree, setCheckedStateThree],
-                            [abnormalityArr, setAbnormalityArr]
-                          )
-                        }
-                      />
-                      <label htmlFor={ai.abnormalityBlurb}>
-                        {ai.abnormalityBlurb}
-                      </label>
-                    </div>
-                  );
-                })} */}
+                {/* <textarea
+                  value={customBlurb}
+                  onChange={handleTextArea}
+                  placeholder="Enter text here"
+                  id="customBlurb"
+                  name="customBlurb"
+                  rows="4"
+                  cols="50"
+                ></textarea> */}
+                <textarea
+                  placeholder="Enter text here"
+                  value={textareaValue}
+                  onChange={handleTextareaChange}
+                  rows="4"
+                  cols="50"
+                />
+                <button type="button" onClick={handleButtonClick}>
+                  Set Blurb
+                </button>
               </>
             )}
           </div>
+
+          {/* <div className="section">
+            <>
+              <textarea
+                placeholder="Enter text here"
+                value={textareaValue}
+                onChange={handleTextareaChange}
+                rows="4"
+                cols="50"
+              />
+              <button type="button" onClick={handleButtonClick}>
+                Add to Array
+              </button>
+            </>
+          </div> */}
+
           <div className="section">
             <label htmlFor="abnormalities">Reminders?</label>
             <input
@@ -337,6 +361,7 @@ function StarterForm() {
           abnormalities={abnormalityArr}
           reminders={remindersArr}
           customBlurb={customBlurb}
+          textareaValuesArray={textareaValuesArray}
         />
       )}
     </div>

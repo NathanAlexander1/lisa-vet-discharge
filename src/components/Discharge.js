@@ -96,57 +96,97 @@ function Discharge(props) {
           </p>
         )}
         <ul id="abnormalitiesList">
-          {stringToHTML(
-            props.abnormalities,
-            pronounsObject,
-            props.petName
-          ).map((iPIB, i) => {
-            // console.log(iPIB)
-            // console.log(iPIB.cleanBlurb.innerHTML)
-            return (
-              <>
-                <li
-                  dangerouslySetInnerHTML={{
-                    __html: iPIB.cleanBlurb.innerHTML,
-                  }}
-                />
-              </>
-            );
-          })}
+          {stringToHTML(props.abnormalities, pronounsObject, props.petName).map(
+            (iPIB, i) => {
+              // console.log(iPIB)
+              // console.log(iPIB.cleanBlurb.innerHTML)
+              return (
+                <>
+                  <li
+                    dangerouslySetInnerHTML={{
+                      __html: iPIB.cleanBlurb.innerHTML,
+                    }}
+                  />
+                </>
+              );
+            }
+          )}
         </ul>
-        {props.customBlurb === "" ? (
-          null
-        ) : (
-          <p>
-            {props.customBlurb}
-          </p>
-        )}
-        {props.reminders.length <= 0 ? (
-          null
-        ) : (
+        {props.customBlurb === "" ? null : <p>{props.customBlurb}</p>}
+        {/* {props.textareaValuesArray.length <= 0 ? null : (
+          <ul>
+            {props.textareaValuesArray.map((tAVA, i) => {
+              return (
+                <>
+                  <li>{tAVA.domBlurb}</li>
+                </>
+              )
+            })}
+          </ul>
+        )} */}
+
+        <ul id="remindersList">
+          {stringToHTML(props.textareaValuesArray, pronounsObject, props.petName).map(
+            (iPIB, i) => {
+              // console.log(iPIB)
+              // console.log(iPIB.cleanBlurb.innerHTML)
+              return (
+                <>
+                  <li
+                    dangerouslySetInnerHTML={{
+                      __html: iPIB.cleanBlurb.innerHTML,
+                    }}
+                  />
+                </>
+              );
+            }
+          )}
+        </ul>
+
+        {/* {props.textareaValuesArray.length <= 0 ? null : (
+          <ul id="customBlurbsList">
+            {stringToHTML(
+              props.abnormalities,
+              pronounsObject,
+              props.petName
+            ).map((iPIB, i) => {
+              // console.log(iPIB)
+              // console.log(iPIB.cleanBlurb.innerHTML)
+              return (
+                <>
+                  <li
+                    dangerouslySetInnerHTML={{
+                      __html: iPIB.cleanBlurb.innerHTML,
+                    }}
+                  />
+                </>
+              );
+            })}
+          </ul>
+        )} */}
+
+        {props.reminders.length <= 0 ? null : (
           <p>
             We want to remind you of the following regarding {props.petName}'s
             appointment:
           </p>
         )}
         <ul id="remindersList">
-          {stringToHTML(
-            props.reminders,
-            pronounsObject,
-            props.petName
-          ).map((iPIB, i) => {
-            // console.log(iPIB)
-            // console.log(iPIB.cleanBlurb.innerHTML)
-            return (
-              <>
-                <li
-                  dangerouslySetInnerHTML={{
-                    __html: iPIB.cleanBlurb.innerHTML,
-                  }}
-                />
-              </>
-            );
-          })}
+          {stringToHTML(props.reminders, pronounsObject, props.petName).map(
+            (iPIB, i) => {
+              // console.log(iPIB)
+              // console.log(iPIB.cleanBlurb.innerHTML)
+              return (
+                <>
+                  <li
+                    dangerouslySetInnerHTML={{
+                      __html: iPIB.cleanBlurb.innerHTML,
+                    }}
+                  />
+                </>
+              );
+            }
+          )}
         </ul>
       </div>
       <button onClick={() => copyOutput()}>COPY</button>
