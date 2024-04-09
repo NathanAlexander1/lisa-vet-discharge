@@ -280,12 +280,10 @@ function StarterForm() {
                   rows="4"
                   cols="50"
                 ></textarea> */}
-                <textarea
+                <textarea id="customBlurbTextArea"
                   placeholder="Enter text here"
                   value={textareaValue}
                   onChange={handleTextareaChange}
-                  rows="4"
-                  cols="50"
                 />
                 <button type="button" onClick={handleButtonClick}>
                   Set Blurb
@@ -293,22 +291,6 @@ function StarterForm() {
               </>
             )}
           </div>
-
-          {/* <div className="section">
-            <>
-              <textarea
-                placeholder="Enter text here"
-                value={textareaValue}
-                onChange={handleTextareaChange}
-                rows="4"
-                cols="50"
-              />
-              <button type="button" onClick={handleButtonClick}>
-                Add to Array
-              </button>
-            </>
-          </div> */}
-
           <div className="section">
             <label htmlFor="abnormalities">Reminders?</label>
             <input

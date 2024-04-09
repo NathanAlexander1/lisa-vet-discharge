@@ -12,7 +12,7 @@
 }
 
 .form-container {
-    max-width: 95%;
+    width: 95%;
     border: 3px solid black;
     margin: 15px;
     .initialScreenForm {
@@ -28,6 +28,11 @@
             flex-direction: column;
             align-items: center;
             margin-top: 25px;
+            width: 100%
+        }
+        #customBlurbTextArea {
+            min-width: 80%;
+            height: 100px
         }
     }
     .discharge-report {
