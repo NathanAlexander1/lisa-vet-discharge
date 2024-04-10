@@ -106,50 +106,64 @@ export const vaccineInfo = [
 export const vaccineReminderInfo = [
   {
     service: "Bordetella vaccine Info",
-    blurb: "We also offer Bordetella vaccines through the wellness clinic. This is a vaccine that helps prevent the main bacterial component of “kennel cough”, a disease that causes a persistent cough with the potential to progress to severe pneumonia. This disease is readily transmitted between dogs through nose to nose contact, aerosol transmission (eg. one dog sneezing near another) and through freshly contaminated fomites (eg. one dog sneezing on a ball that another dog picks up). While this is not considered a core vaccine, it is highly recommended for dogs that frequent dog parks, doggy day care/puppy classes and boarding facilities. We can start vaccinating for this at age 8 weeks. This vaccine will need to be repeated annually for continued prevention. Please let us know if you would be interested in having this vaccine administered in the future. ",
-    domBlurb: "<p>We also offer Bordetella vaccines through the wellness clinic. This is a vaccine that helps prevent the main bacterial component of “kennel cough”, a disease that causes a persistent cough with the potential to progress to severe pneumonia. This disease is readily transmitted between dogs through nose to nose contact, aerosol transmission (eg. one dog sneezing near another) and through freshly contaminated fomites (eg. one dog sneezing on a ball that another dog picks up). While this is not considered a core vaccine, it is highly recommended for dogs that frequent dog parks, doggy day care/puppy classes and boarding facilities. We can start vaccinating for this at age 8 weeks. This vaccine will need to be repeated annually for continued prevention. Please let us know if you would be interested in having this vaccine administered in the future.</p>"
+    blurb:
+      "We also offer Bordetella vaccines through the wellness clinic. This is a vaccine that helps prevent the main bacterial component of “kennel cough”, a disease that causes a persistent cough with the potential to progress to severe pneumonia. This disease is readily transmitted between dogs through nose to nose contact, aerosol transmission (eg. one dog sneezing near another) and through freshly contaminated fomites (eg. one dog sneezing on a ball that another dog picks up). While this is not considered a core vaccine, it is highly recommended for dogs that frequent dog parks, doggy day care/puppy classes and boarding facilities. We can start vaccinating for this at age 8 weeks. This vaccine will need to be repeated annually for continued prevention. Please let us know if you would be interested in having this vaccine administered in the future. ",
+    domBlurb:
+      "<p>We also offer Bordetella vaccines through the wellness clinic. This is a vaccine that helps prevent the main bacterial component of “kennel cough”, a disease that causes a persistent cough with the potential to progress to severe pneumonia. This disease is readily transmitted between dogs through nose to nose contact, aerosol transmission (eg. one dog sneezing near another) and through freshly contaminated fomites (eg. one dog sneezing on a ball that another dog picks up). While this is not considered a core vaccine, it is highly recommended for dogs that frequent dog parks, doggy day care/puppy classes and boarding facilities. We can start vaccinating for this at age 8 weeks. This vaccine will need to be repeated annually for continued prevention. Please let us know if you would be interested in having this vaccine administered in the future.</p>",
   },
   {
     service: "Leptospirosis vaccine info",
-    blurb: "A leptospirosis vaccine is also available through the wellness clinic. Leptospirosis is a bacterial disease that can be deadly and mainly affects the liver and kidneys. This disease is transmitted through urine of wild animals, mainly rodents such as rats, which contaminate water sources in the environment. We can start this vaccine at age 12 weeks. Your pet will need to have a second booster 3-4 weeks after the initial vaccine in order to be considered fully vaccinated for a year. After the initial vaccine series, your pet will only need one leptospirosis vaccine a year for continued prevention. Please let us know if you are interested in having this vaccine administered in the future.  For more information about Leptospirosis- please see: https://www.avma.org/resources/pet-owners/petcare/leptospirosis.",
-    domBlurb: "<p>A leptospirosis vaccine is also available through the wellness clinic. Leptospirosis is a bacterial disease that can be deadly and mainly affects the liver and kidneys. This disease is transmitted through urine of wild animals, mainly rodents such as rats, which contaminate water sources in the environment. We can start this vaccine at age 12 weeks. Your pet will need to have a second booster 3-4 weeks after the initial vaccine in order to be considered fully vaccinated for a year. After the initial vaccine series, your pet will only need one leptospirosis vaccine a year for continued prevention. Please let us know if you are interested in having this vaccine administered in the future.  For more information about Leptospirosis- please see: <a href='https://www.avma.org/resources/pet-owners/petcare/leptospirosis'>https://www.avma.org/resources/pet-owners/petcare/leptospirosis</a>.</p>"
+    blurb:
+      "A leptospirosis vaccine is also available through the wellness clinic. Leptospirosis is a bacterial disease that can be deadly and mainly affects the liver and kidneys. This disease is transmitted through urine of wild animals, mainly rodents such as rats, which contaminate water sources in the environment. We can start this vaccine at age 12 weeks. Your pet will need to have a second booster 3-4 weeks after the initial vaccine in order to be considered fully vaccinated for a year. After the initial vaccine series, your pet will only need one leptospirosis vaccine a year for continued prevention. Please let us know if you are interested in having this vaccine administered in the future.  For more information about Leptospirosis- please see: https://www.avma.org/resources/pet-owners/petcare/leptospirosis.",
+    domBlurb:
+      "<p>A leptospirosis vaccine is also available through the wellness clinic. Leptospirosis is a bacterial disease that can be deadly and mainly affects the liver and kidneys. This disease is transmitted through urine of wild animals, mainly rodents such as rats, which contaminate water sources in the environment. We can start this vaccine at age 12 weeks. Your pet will need to have a second booster 3-4 weeks after the initial vaccine in order to be considered fully vaccinated for a year. After the initial vaccine series, your pet will only need one leptospirosis vaccine a year for continued prevention. Please let us know if you are interested in having this vaccine administered in the future.  For more information about Leptospirosis- please see: <a href='https://www.avma.org/resources/pet-owners/petcare/leptospirosis'>https://www.avma.org/resources/pet-owners/petcare/leptospirosis</a>.</p>",
   },
   {
     service: "Puppy Vaccines (Reminder) - DHPP",
-    blurb: "petName should continue to get DHPP booster vaccines every 3-4 weeks until age 16-20 weeks, at which time heShe will be considered fully vaccinated for the next year.",
-    domBlurb: "<p>petName should continue to get DHPP booster vaccines every 3-4 weeks until age 16-20 weeks, at which time heShe will be considered fully vaccinated for the next year.</p>"
+    blurb:
+      "petName should continue to get DHPP booster vaccines every 3-4 weeks until age 16-20 weeks, at which time heShe will be considered fully vaccinated for the next year.",
+    domBlurb:
+      "<p>petName should continue to get DHPP booster vaccines every 3-4 weeks until age 16-20 weeks, at which time heShe will be considered fully vaccinated for the next year.</p>",
   },
   {
     service: "Puppy Vaccines (Reminder) - Rabies + DHPP",
-    blurb: "petName should continue to get DHPP booster vaccines every 3-4 weeks until age 16-20 weeks, at which time heShe will be considered fully vaccinated for the next year. petName can get a rabies vaccine once heShe reaches 12 weeks of age, or at the same time as the last DHPP booster.",
-    domBlurb: "<p>petName should continue to get DHPP booster vaccines every 3-4 weeks until age 16-20 weeks, at which time heShe will be considered fully vaccinated for the next year. petName can get a rabies vaccine once heShe reaches 12 weeks of age, or at the same time as the last DHPP booster.</p>"
+    blurb:
+      "petName should continue to get DHPP booster vaccines every 3-4 weeks until age 16-20 weeks, at which time heShe will be considered fully vaccinated for the next year. petName can get a rabies vaccine once heShe reaches 12 weeks of age, or at the same time as the last DHPP booster.",
+    domBlurb:
+      "<p>petName should continue to get DHPP booster vaccines every 3-4 weeks until age 16-20 weeks, at which time heShe will be considered fully vaccinated for the next year. petName can get a rabies vaccine once heShe reaches 12 weeks of age, or at the same time as the last DHPP booster.</p>",
   },
   {
     service: "Puppy Vaccines (Reminder) - Rabies, DHPP and leptospirosis",
-    blurb: "petName should continue to get DHPP booster vaccines every 3-4 weeks until age 16-20 weeks, at which time heShe will be considered fully vaccinated for the next year.  petName can get a rabies vaccine once heShe reaches 12 weeks of age, or at the same time as the last DHPP booster. petName will also need another leptospirosis booster in 3-4 weeks to complete the initial series.",
-    domBlurb: "<p>petName should continue to get DHPP booster vaccines every 3-4 weeks until age 16-20 weeks, at which time heShe will be considered fully vaccinated for the next year.  petName can get a rabies vaccine once heShe reaches 12 weeks of age, or at the same time as the last DHPP booster. petName will also need another leptospirosis booster in 3-4 weeks to complete the initial series.</p>"
+    blurb:
+      "petName should continue to get DHPP booster vaccines every 3-4 weeks until age 16-20 weeks, at which time heShe will be considered fully vaccinated for the next year.  petName can get a rabies vaccine once heShe reaches 12 weeks of age, or at the same time as the last DHPP booster. petName will also need another leptospirosis booster in 3-4 weeks to complete the initial series.",
+    domBlurb:
+      "<p>petName should continue to get DHPP booster vaccines every 3-4 weeks until age 16-20 weeks, at which time heShe will be considered fully vaccinated for the next year.  petName can get a rabies vaccine once heShe reaches 12 weeks of age, or at the same time as the last DHPP booster. petName will also need another leptospirosis booster in 3-4 weeks to complete the initial series.</p>",
   },
   {
     service: "Puppy Vaccines (Reminder) - DHPP and leptospirosis",
-    blurb: "petName should continue to get DHPP booster vaccines every 3-4 weeks until age 16-20 weeks, at which time heShe will be considered fully vaccinated for the next year. petName will also need another leptospirosis booster in 3-4 weeks to complete the initial series. Both of these vaccines can be scheduled as technician vaccine appointments.",
-  //   {
-  //     service: "",
-  //   blurb: "",
-  //   domBlurb: ""
-  // },
-  // {
-  //   service: "",
-  //   blurb: "",
-  //   domBlurb: ""
-  // },
-  domBlurb: "<p>petName should continue to get DHPP booster vaccines every 3-4 weeks until age 16-20 weeks, at which time heShe will be considered fully vaccinated for the next year. petName will also need another leptospirosis booster in 3-4 weeks to complete the initial series. Both of these vaccines can be scheduled as technician vaccine appointments.</p>"
-},
-{
-  service: "Vaccine Booster (Reminder) - Leptospirosis",
-  blurb: "petName's next leptospirosis booster will be due in 3-4 weeks from now, and can be scheduled as a technician vaccine appointment.",
-  domBlurb: "<p>petName's next leptospirosis booster will be due in 3-4 weeks from now, and can be scheduled as a technician vaccine appointment.</p>"
+    blurb:
+      "petName should continue to get DHPP booster vaccines every 3-4 weeks until age 16-20 weeks, at which time heShe will be considered fully vaccinated for the next year. petName will also need another leptospirosis booster in 3-4 weeks to complete the initial series. Both of these vaccines can be scheduled as technician vaccine appointments.",
+    //   {
+    //     service: "",
+    //   blurb: "",
+    //   domBlurb: ""
+    // },
+    // {
+    //   service: "",
+    //   blurb: "",
+    //   domBlurb: ""
+    // },
+    domBlurb:
+      "<p>petName should continue to get DHPP booster vaccines every 3-4 weeks until age 16-20 weeks, at which time heShe will be considered fully vaccinated for the next year. petName will also need another leptospirosis booster in 3-4 weeks to complete the initial series. Both of these vaccines can be scheduled as technician vaccine appointments.</p>",
   },
-]
+  {
+    service: "Vaccine Booster (Reminder) - Leptospirosis",
+    blurb:
+      "petName's next leptospirosis booster will be due in 3-4 weeks from now, and can be scheduled as a technician vaccine appointment.",
+    domBlurb:
+      "<p>petName's next leptospirosis booster will be due in 3-4 weeks from now, and can be scheduled as a technician vaccine appointment.</p>",
+  },
+];
 
 // may be able to get rid of blurb since I ultimately use domBlurb
 export const standardServicesInfo = [
@@ -247,7 +261,10 @@ export const abnormalitiesInfo = [
     domBlurb: "<p>Overweight Dog</p>",
   },
   { abnormalityBlurb: "Overweight Cat", domBlurb: "<p>Overweight Cat</p>" },
-  { abnormalityBlurb: "Mild Dental Disease", domBlurb: "<p>Mild Dental Disease</p>" },
+  {
+    abnormalityBlurb: "Mild Dental Disease",
+    domBlurb: "<p>Mild Dental Disease</p>",
+  },
   {
     abnormalityBlurb: "Moderate to severe dental disease",
     domBlurb: "<p>Moderate to severe dental disease</p>",
@@ -257,14 +274,25 @@ export const abnormalitiesInfo = [
   { abnormalityBlurb: "Mild URI", domBlurb: "<p>Mild URI</p>" },
 ];
 
+export const presurgicalExamInfo = [
+  {
+    service: "Pre-Surgical High Risk - Brachycephalic",
+    presurgicalExamBlurb: "For managing fleas in the environment, we recommend that you vacuum frequently, including the couch, cat tree, carpet or other surfaces where petName hangs out and wash any bedding or linens that you can in hot water in order to get rid of any flea larva or eggs that may be hiding. If able, you should empty the vacuum bag with each cleaning and discard the contents into a garbage located outside and away from the home. Additional information about flea control can be found at the following website: <a href='https://vcahospitals.com/know-your-pet/flea-control-in-cats'>https://vcahospitals.com/know-your-pet/flea-control-in-cats</a>.",
+    domBlurb: "<p>For managing fleas in the environment, we recommend that you vacuum frequently, including the couch, cat tree, carpet or other surfaces where petName hangs out and wash any bedding or linens that you can in hot water in order to get rid of any flea larva or eggs that may be hiding. If able, you should empty the vacuum bag with each cleaning and discard the contents into a garbage located outside and away from the home. Additional information about flea control can be found at the following website: <a href='https://vcahospitals.com/know-your-pet/flea-control-in-cats'>https://vcahospitals.com/know-your-pet/flea-control-in-cats</a>.</p>",
+  },
+];
+
 export const remindersInfo = [
   {
-    reminderBlurb: "Reminder1", domBlurb: "<p>Reminder1</p>" 
+    reminderBlurb: "Reminder1",
+    domBlurb: "<p>Reminder1</p>",
   },
   {
-    reminderBlurb: "Reminder2", domBlurb: "<p>Reminder2</p>"
+    reminderBlurb: "Reminder2",
+    domBlurb: "<p>Reminder2</p>",
   },
   {
-    reminderBlurb: "Reminder3",domBlurb: "<p>Reminder3</p>"
+    reminderBlurb: "Reminder3",
+    domBlurb: "<p>Reminder3</p>",
   },
 ];

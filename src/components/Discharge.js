@@ -139,6 +139,33 @@ function Discharge(props) {
             }
           )}
         </ul>
+
+        {props.presurgicalExamArr.length <= 0 ? null : (
+          <p>
+            Below is some presurgical exam info:
+          </p>
+        )}
+        <ul id="presurgicalExamList">
+          {stringToHTML(
+            props.presurgicalExamArr,
+            pronounsObject,
+            props.petName
+          ).map((iPIB, i) => {
+            // console.log(iPIB)
+            // console.log(iPIB.cleanBlurb.innerHTML)
+            return (
+              <>
+                <li
+                  dangerouslySetInnerHTML={{
+                    __html: iPIB.cleanBlurb.innerHTML,
+                  }}
+                />
+              </>
+            );
+          })}
+        </ul>
+
+
         {props.customBlurb === "" ? null : <p>{props.customBlurb}</p>}
         {/* {props.textareaValuesArray.length <= 0 ? null : (
           <ul>

@@ -9,6 +9,7 @@ import {
   vaccineReminderInfo,
   standardServicesInfo,
   abnormalitiesInfo,
+  presurgicalExamInfo,
   remindersInfo,
 } from "../const";
 import { updateMulticheckArr } from "../utils/functions";
@@ -23,6 +24,7 @@ function StarterForm() {
   const [vaccines, setVaccines] = useState(false);
   const [vaccineReminders, setVaccineReminders] = useState(false);
   const [appliedStrdPrc, setAppliedStrdPrc] = useState(false);
+  const [noPresurgicalExams, setNoPresurgicalExams] = useState(false);
   const [noAbnormalities, setNoAbnormalities] = useState(false);
   const [noReminders, setNoReminders] = useState(false);
   const [noCustom, setNoCustom] = useState(false);
@@ -39,6 +41,9 @@ function StarterForm() {
   const [checkedStateThree, setCheckedStateThree] = useState(
     new Array(abnormalitiesInfo.length).fill(false)
   );
+  const [checkedStateSix, setCheckedStateSix] = useState(
+    new Array(presurgicalExamInfo.length).fill(false)
+  );
   const [checkedStateFour, setCheckedStateFour] = useState(
     new Array(remindersInfo.length).fill(false)
   );
@@ -47,9 +52,9 @@ function StarterForm() {
   const [vaccineRemindersArray, setVaccineRemindersArray] = useState([]);
   const [standardProcArr, setStandardProcArr] = useState([]);
   const [abnormalityArr, setAbnormalityArr] = useState([]);
+  const [presurgicalExamArr, setPresurgicalExamArr] = useState([]);
   const [remindersArr, setRemindersArr] = useState([]);
   const [customBlurb, setCustomBlurb] = useState("");
-
   const [textareaValue, setTextareaValue] = useState("");
   const [textareaValuesArray, setTextareaValuesArray] = useState([]);
 
@@ -64,7 +69,7 @@ function StarterForm() {
 
   const handleDateChange = (e) => {
     setDate(e.target.value);
-  }
+  };
 
   const handleInitialScreenForm = (e) => {
     e.preventDefault();
@@ -188,7 +193,7 @@ function StarterForm() {
           </div>
 
           <div className="section">
-            <label htmlFor="vaccineReminders">Vaccine Reminder?</label>
+            <label htmlFor="vaccineReminders">Vaccine Reminders?</label>
             <input
               className="form-input"
               id="vaccineReminders"
@@ -305,6 +310,43 @@ function StarterForm() {
             )}
           </div>
           <div className="section">
+          <label htmlFor="presurgicalExam">Pre-Surgical Exam Info?</label>
+            <input
+              className="form-input"
+              id="presurgicalExam"
+              name="presurgicalExam"
+              onChange={(e) => setNoPresurgicalExams(e.target.checked)}
+              type="checkbox"
+              checked={noPresurgicalExams}
+            />
+            {noPresurgicalExams === false ? null : (
+              <>
+                {presurgicalExamInfo.map((pei, i) => {
+                  return (
+                    <div>
+                      <input
+                        id={pei.service}
+                        type="checkbox"
+                        name={pei.service}
+                        key={"presurgicalExam" + i}
+                        checked={checkedStateSix[i]}
+                        onChange={() =>
+                          updateMulticheckArr(
+                            i,
+                            presurgicalExamInfo,
+                            [checkedStateSix, setCheckedStateSix],
+                            [presurgicalExamArr, setPresurgicalExamArr]
+                          )
+                        }
+                      />
+                      <label htmlFor={pei.service}>{pei.service}</label>
+                    </div>
+                  );
+                })}
+              </>
+            )}
+          </div>
+          <div className="section">
             <label htmlFor="customBlurb">Custom Blurb?</label>
             <input
               className="form-input"
@@ -325,7 +367,8 @@ function StarterForm() {
                   rows="4"
                   cols="50"
                 ></textarea> */}
-                <textarea id="customBlurbTextArea"
+                <textarea
+                  id="customBlurbTextArea"
                   placeholder="Enter text here"
                   value={textareaValue}
                   onChange={handleTextareaChange}
@@ -390,6 +433,7 @@ function StarterForm() {
           vaccineRemindersArray={vaccineRemindersArray}
           standardProcArr={standardProcArr}
           abnormalities={abnormalityArr}
+          presurgicalExamArr={presurgicalExamArr}
           reminders={remindersArr}
           customBlurb={customBlurb}
           textareaValuesArray={textareaValuesArray}
