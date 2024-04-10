@@ -12,7 +12,7 @@
 }
 
 .form-container {
-    max-width: 95%;
+    width: 95%;
     border: 3px solid black;
     margin: 15px;
     .initialScreenForm {
@@ -23,6 +23,17 @@
         img {
             width: 100%;
         }
+        .section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 25px;
+            width: 100%
+        }
+        #customBlurbTextArea {
+            min-width: 80%;
+            height: 100px
+        }
     }
     .discharge-report {
         margin: 20px;
@@ -31,7 +42,7 @@
         #random-dog-img {
             align-self: center;
         }
-        #vaccine-list {
+        #vaccine-list, #vaccineReminders-list, #standardProcList, #presurgicalExamList, #abnormalitiesList, #remindersList {
             list-style-type: none;
         }
         /* #vaccine-list {

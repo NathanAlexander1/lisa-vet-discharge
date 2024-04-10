@@ -3,45 +3,106 @@ import API from "../utils/API";
 import Moment from "react-moment";
 import moment from "moment";
 import Discharge from "./Discharge";
-import { vaccineInfo, standardServicesInfo } from "../const";
-import { updateMulticheckArr } from "../utils/functions"
+import Vaccine from "./Vaccine";
+import {
+  vaccineInfo,
+  vaccineReminderInfo,
+  standardServicesInfo,
+  abnormalitiesInfo,
+  presurgicalExamInfo,
+  remindersInfo,
+} from "../const";
+import { updateMulticheckArr } from "../utils/functions";
 
 function StarterForm() {
-  const [randomDogImage, setRandomDogImage] = useState({});
+  // const [randomDogImage, setRandomDogImage] = useState({});
   const [petName, setPetName] = useState("");
   const [petType, setPetType] = useState("");
   const [petSex, setPetSex] = useState("");
   const [date, setDate] = useState(moment().format("MM-DD-YYYY"));
   const [reasonForVisit, setReasonForVisit] = useState("");
-  const [noAbnormalities, setNoAbnormalities] = useState(false);
   const [vaccines, setVaccines] = useState(false);
+  const [vaccineReminders, setVaccineReminders] = useState(false);
   const [appliedStrdPrc, setAppliedStrdPrc] = useState(false);
+  const [noPresurgicalExams, setNoPresurgicalExams] = useState(false);
+  const [noAbnormalities, setNoAbnormalities] = useState(false);
+  const [noReminders, setNoReminders] = useState(false);
+  const [noCustom, setNoCustom] = useState(false);
+
   const [checkedStateOne, setCheckedStateOne] = useState(
     new Array(vaccineInfo.length).fill(false)
+  );
+  const [checkedStateFive, setCheckedStateFive] = useState(
+    new Array(vaccineReminderInfo.length).fill(false)
   );
   const [checkedStateTwo, setCheckedStateTwo] = useState(
     new Array(standardServicesInfo.length).fill(false)
   );
+  const [checkedStateThree, setCheckedStateThree] = useState(
+    new Array(abnormalitiesInfo.length).fill(false)
+  );
+  const [checkedStateSix, setCheckedStateSix] = useState(
+    new Array(presurgicalExamInfo.length).fill(false)
+  );
+  const [checkedStateFour, setCheckedStateFour] = useState(
+    new Array(remindersInfo.length).fill(false)
+  );
+
   const [vaccineArray, setVaccineArray] = useState([]);
+  const [vaccineRemindersArray, setVaccineRemindersArray] = useState([]);
   const [standardProcArr, setStandardProcArr] = useState([]);
+  const [abnormalityArr, setAbnormalityArr] = useState([]);
+  const [presurgicalExamArr, setPresurgicalExamArr] = useState([]);
+  const [remindersArr, setRemindersArr] = useState([]);
+  const [customBlurb, setCustomBlurb] = useState("");
+  const [textareaValue, setTextareaValue] = useState("");
+  const [textareaValuesArray, setTextareaValuesArray] = useState([]);
+
   const [showDischarge, setShowDischarge] = useState(false);
-  useEffect(() => {
-    API.getRandomDog().then((data) => {
-      console.log(data);
-      setRandomDogImage(data);
-    });
-  
-  }, []);
+  // useEffect(() => {
+  //   API.getRandomDog().then((data) => {
+  //     console.log(data);
+  //     setRandomDogImage(data);
+  //   });
+
+  // }, []);
+
+  const handleDateChange = (e) => {
+    setDate(e.target.value);
+  };
+
   const handleInitialScreenForm = (e) => {
     e.preventDefault();
     setShowDischarge(true);
+  };
+
+  const handleTextArea = (event) => {
+    console.log(event.target.value);
+    setCustomBlurb(event.target.value);
+    console.log(customBlurb);
+    navigator.clipboard.writeText(customBlurb);
+  };
+
+  const handleTextareaChange = (event) => {
+    setTextareaValue(event.target.value);
+  };
+
+  const handleButtonClick = () => {
+    if (textareaValue.trim() !== "") {
+      setTextareaValuesArray((prevArray) => [
+        ...prevArray,
+        { domBlurb: textareaValue.trim() },
+      ]);
+      setTextareaValue(""); // Clear the textarea after adding its value to the array
+    }
+    console.log(textareaValuesArray);
   };
 
   return (
     <div className="form-container">
       {!showDischarge ? (
         <form className="initialScreenForm" onSubmit={handleInitialScreenForm}>
-          <img width="200px" src={randomDogImage.image} />
+          {/* <img width="200px" src={randomDogImage.image} /> */}
           <input
             className="form-input"
             name="name"
@@ -70,9 +131,7 @@ function StarterForm() {
           </select>
           <input
             className="form-input"
-            onChange={(e) =>
-              setDate(moment(e.target.value).format("MM-DD-YYYY"))
-            }
+            onChange={handleDateChange}
             type="date"
             id="start"
             name="date"
@@ -94,94 +153,276 @@ function StarterForm() {
             </option>
             <option value="a post-adoption exam">Post-adoption Exam</option>
           </select>
-          <label htmlFor="abnormalities">Abnormalities?</label>
-          <input
-            className="form-input"
-            id="abnormalities"
-            name="abnormalities"
-            onChange={(e) => setNoAbnormalities(e.target.checked)}
-            type="checkbox"
-            checked={noAbnormalities}
-          />
-          {noAbnormalities === false ? null : (
-            <select multiple>
-              <option value="overweight dog">Overweight Dog</option>
-              <option value="overweight cat">Overweight Cat</option>
-              <option value="mild dental disease">Mild Dental Disease</option>
-              <option value="moderate to severe dental disease">
-                Moderate to Severe Dental Disease
-              </option>
-              <option value="fleas">Fleas</option>
-              <option value="tapeworms">Tapeworms</option>
-              <option value="mild URI">Mild URI</option>
-            </select>
-          )}
-          <label htmlFor="vaccines">Vaccines?</label>
-          <input
-            className="form-input"
-            id="vaccines"
-            name="vaccines"
-            onChange={(e) => setVaccines(e.target.checked)}
-            type="checkbox"
-            checked={vaccines}
-          />
-          {vaccines === false ? null : (
-            // <form className="vaccinesSelect">
-            <>
-              {vaccineInfo.map((vi, i) => {
-                return (
-                  <div>
-                    <input
-                      id={vi.service}
-                      type="checkbox"
-                      name={vi.service}
-                      key={"vaccine" + i}
-                      checked={checkedStateOne[i]}
-                      onChange={() => updateMulticheckArr(i, vaccineInfo, [checkedStateOne, setCheckedStateOne], [vaccineArray, setVaccineArray])}
-                    />
-                    <label htmlFor={vi.service}>{vi.service}</label>
-                  </div>
-                );
-              })}
-            </>
-            // </form>
-          )}
-          <label htmlFor="applied-standard-proc">
-            Applied Standard Procedures?
-          </label>
-          <input
-            className="form-input"
-            id="applied-standard-proc"
-            name="applied-standard-proc"
-            onChange={(e) => setAppliedStrdPrc(e.target.checked)}
-            type="checkbox"
-            checked={appliedStrdPrc}
-          />
-          {appliedStrdPrc === false ? null : (
-            <>
-              {standardServicesInfo.map((sSI, i) => {
-                // console.log(sSI)
-                return (
-                  <div>
-                    <input
-                      id={sSI.service}
-                      type="checkbox"
-                      name={sSI.service}
-                      key={"Standard Service" + i}
-                      checked={checkedStateTwo[i]}
-                      onChange={() => updateMulticheckArr(i, standardServicesInfo, [checkedStateTwo, setCheckedStateTwo], [standardProcArr, setStandardProcArr])}
-                    />
-                    <label htmlFor={sSI.service}>{sSI.service}</label>
-                  </div>
-                );
-              })}
-            </>
-          )}
+          {/* < Vaccine /> */}
+          <div className="section">
+            <label htmlFor="vaccines">Vaccines?</label>
+            <input
+              className="form-input"
+              id="vaccines"
+              name="vaccines"
+              onChange={(e) => setVaccines(e.target.checked)}
+              type="checkbox"
+              checked={vaccines}
+            />
+            {vaccines === false ? null : (
+              <>
+                {vaccineInfo.map((vi, i) => {
+                  return (
+                    <div>
+                      <input
+                        id={vi.service}
+                        type="checkbox"
+                        name={vi.service}
+                        key={"vaccine" + i}
+                        checked={checkedStateOne[i]}
+                        onChange={() =>
+                          updateMulticheckArr(
+                            i,
+                            vaccineInfo,
+                            [checkedStateOne, setCheckedStateOne],
+                            [vaccineArray, setVaccineArray]
+                          )
+                        }
+                      />
+                      <label htmlFor={vi.service}>{vi.service}</label>
+                    </div>
+                  );
+                })}
+              </>
+            )}
+          </div>
+
+          <div className="section">
+            <label htmlFor="vaccineReminders">Vaccine Reminders?</label>
+            <input
+              className="form-input"
+              id="vaccineReminders"
+              name="vaccineReminders"
+              onChange={(e) => setVaccineReminders(e.target.checked)}
+              type="checkbox"
+              checked={vaccineReminders}
+            />
+            {vaccineReminders === false ? null : (
+              <>
+                {vaccineReminderInfo.map((vir, i) => {
+                  return (
+                    <div>
+                      <input
+                        id={vir.service}
+                        type="checkbox"
+                        name={vir.service}
+                        key={"vaccineReminder" + i}
+                        checked={checkedStateFive[i]}
+                        onChange={() =>
+                          updateMulticheckArr(
+                            i,
+                            vaccineReminderInfo,
+                            [checkedStateFive, setCheckedStateFive],
+                            [vaccineRemindersArray, setVaccineRemindersArray]
+                          )
+                        }
+                      />
+                      <label htmlFor={vir.service}>{vir.service}</label>
+                    </div>
+                  );
+                })}
+              </>
+            )}
+          </div>
+
+          <div className="section">
+            <label htmlFor="applied-standard-proc">
+              Applied Standard Procedures?
+            </label>
+            <input
+              className="form-input"
+              id="applied-standard-proc"
+              name="applied-standard-proc"
+              onChange={(e) => setAppliedStrdPrc(e.target.checked)}
+              type="checkbox"
+              checked={appliedStrdPrc}
+            />
+            {appliedStrdPrc === false ? null : (
+              <>
+                {standardServicesInfo.map((sSI, i) => {
+                  // console.log(sSI)
+                  return (
+                    <div>
+                      <input
+                        id={sSI.service}
+                        type="checkbox"
+                        name={sSI.service}
+                        key={"Standard Service" + i}
+                        checked={checkedStateTwo[i]}
+                        onChange={() =>
+                          updateMulticheckArr(
+                            i,
+                            standardServicesInfo,
+                            [checkedStateTwo, setCheckedStateTwo],
+                            [standardProcArr, setStandardProcArr]
+                          )
+                        }
+                      />
+                      <label htmlFor={sSI.service}>{sSI.service}</label>
+                    </div>
+                  );
+                })}
+              </>
+            )}
+          </div>
+          <div className="section">
+            <label htmlFor="abnormalities">Abnormalities?</label>
+            <input
+              className="form-input"
+              id="abnormalities"
+              name="abnormalities"
+              onChange={(e) => setNoAbnormalities(e.target.checked)}
+              type="checkbox"
+              checked={noAbnormalities}
+            />
+            {noAbnormalities === false ? null : (
+              <>
+                {abnormalitiesInfo.map((ai, i) => {
+                  return (
+                    <div>
+                      <input
+                        id={ai.abnormalityBlurb}
+                        type="checkbox"
+                        name={ai.abnormalityBlurb}
+                        key={"abnormality" + i}
+                        checked={checkedStateThree[i]}
+                        onChange={() =>
+                          updateMulticheckArr(
+                            i,
+                            abnormalitiesInfo,
+                            [checkedStateThree, setCheckedStateThree],
+                            [abnormalityArr, setAbnormalityArr]
+                          )
+                        }
+                      />
+                      <label htmlFor={ai.abnormalityBlurb}>
+                        {ai.abnormalityBlurb}
+                      </label>
+                    </div>
+                  );
+                })}
+              </>
+            )}
+          </div>
+          <div className="section">
+          <label htmlFor="presurgicalExam">Pre-Surgical Exam Info?</label>
+            <input
+              className="form-input"
+              id="presurgicalExam"
+              name="presurgicalExam"
+              onChange={(e) => setNoPresurgicalExams(e.target.checked)}
+              type="checkbox"
+              checked={noPresurgicalExams}
+            />
+            {noPresurgicalExams === false ? null : (
+              <>
+                {presurgicalExamInfo.map((pei, i) => {
+                  return (
+                    <div>
+                      <input
+                        id={pei.service}
+                        type="checkbox"
+                        name={pei.service}
+                        key={"presurgicalExam" + i}
+                        checked={checkedStateSix[i]}
+                        onChange={() =>
+                          updateMulticheckArr(
+                            i,
+                            presurgicalExamInfo,
+                            [checkedStateSix, setCheckedStateSix],
+                            [presurgicalExamArr, setPresurgicalExamArr]
+                          )
+                        }
+                      />
+                      <label htmlFor={pei.service}>{pei.service}</label>
+                    </div>
+                  );
+                })}
+              </>
+            )}
+          </div>
+          <div className="section">
+            <label htmlFor="customBlurb">Custom Blurb?</label>
+            <input
+              className="form-input"
+              id="customBlurb"
+              name="customBlurb"
+              onChange={(e) => setNoCustom(e.target.checked)}
+              type="checkbox"
+              checked={noCustom}
+            />
+            {noCustom === false ? null : (
+              <>
+                {/* <textarea
+                  value={customBlurb}
+                  onChange={handleTextArea}
+                  placeholder="Enter text here"
+                  id="customBlurb"
+                  name="customBlurb"
+                  rows="4"
+                  cols="50"
+                ></textarea> */}
+                <textarea
+                  id="customBlurbTextArea"
+                  placeholder="Enter text here"
+                  value={textareaValue}
+                  onChange={handleTextareaChange}
+                />
+                <button type="button" onClick={handleButtonClick}>
+                  Set Blurb
+                </button>
+              </>
+            )}
+          </div>
+          <div className="section">
+            <label htmlFor="abnormalities">Reminders?</label>
+            <input
+              className="form-input"
+              id="reminders"
+              name="reminders"
+              onChange={(e) => setNoReminders(e.target.checked)}
+              type="checkbox"
+              checked={noReminders}
+            />
+            {noReminders === false ? null : (
+              <>
+                {remindersInfo.map((ri, i) => {
+                  return (
+                    <div>
+                      <input
+                        id={ri.reminderBlurb}
+                        type="checkbox"
+                        name={ri.reminderBlurb}
+                        key={"reminder" + i}
+                        checked={checkedStateFour[i]}
+                        onChange={() =>
+                          updateMulticheckArr(
+                            i,
+                            remindersInfo,
+                            [checkedStateFour, setCheckedStateFour],
+                            [remindersArr, setRemindersArr]
+                          )
+                        }
+                      />
+                      <label htmlFor={ri.reminderBlurb}>
+                        {ri.reminderBlurb}
+                      </label>
+                    </div>
+                  );
+                })}
+              </>
+            )}
+          </div>
           <button>Proceed</button>
         </form>
       ) : (
         <Discharge
-          randomDogImage={randomDogImage.image}
+          // randomDogImage={randomDogImage.image}
           petName={petName}
           petType={petType}
           petSex={petSex}
@@ -189,7 +430,13 @@ function StarterForm() {
           reasonForVisit={reasonForVisit}
           noAbnormalities={noAbnormalities}
           vaccineArray={vaccineArray}
+          vaccineRemindersArray={vaccineRemindersArray}
           standardProcArr={standardProcArr}
+          abnormalities={abnormalityArr}
+          presurgicalExamArr={presurgicalExamArr}
+          reminders={remindersArr}
+          customBlurb={customBlurb}
+          textareaValuesArray={textareaValuesArray}
         />
       )}
     </div>

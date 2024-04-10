@@ -36,12 +36,12 @@ export const stringToHTML = ( servicesArr, pronounsObject, petName ) => {
   // console.log(servicesArr)
   let dynamicBlurb = servicesArr.map((sA, i) => {
     // console.log(sA.domBlurb)
-    let replaceWords = sA.domBlurb.split("petName").join(petName).split("heShe").join(pronounsObject.heShe).split("himHer").join(pronounsObject.himHer).split("hisHers").join(pronounsObject.hisHers).split("capHisHer").join(pronounsObject.capHisHer).split("capHeShe").join(pronounsObject.capHeShe).split("capHimHer").join(pronounsObject.capHimHer).split("capHisHers").join(pronounsObject.capHisHers).split("hisHer").join(pronounsObject.hisHer).split("capThey").join(pronounsObject.capThey);
+    let replaceWords = sA.domBlurb.split("petName").join(petName).split("heShe").join(pronounsObject.heShe).split("himHer").join(pronounsObject.himHer).split("hisHers").join(pronounsObject.hisHers).split("capHisHer").join(pronounsObject.capHisHer).split("capHeShe").join(pronounsObject.capHeShe).split("capHimHer").join(pronounsObject.capHimHer).split("capHisHers").join(pronounsObject.capHisHers).split("hisHer").join(pronounsObject.hisHer).split("capThey").join(pronounsObject.capThey).split("\n").join("<br>");
     // console.log(replaceWords)
     let parser = new DOMParser();
     let doc = parser.parseFromString(replaceWords, 'text/html')
     sA.cleanBlurb = doc.body
-    // console.log(sA.cleanBlurb)
+    console.log(sA.cleanBlurb)
     return sA
 
   });
