@@ -62,6 +62,33 @@ function Discharge(props) {
             }
           )}
         </ul>
+
+        {props.vaccineRemindersArray.length <= 0 ? null : (
+          <p>
+            I want to remind you about a few pieces of vaccine information.
+          </p>
+        )}
+        <ul id="vaccineReminders-list">
+          {stringToHTML(
+              props.vaccineRemindersArray,
+              pronounsObject,
+              props.petName
+            ).map((iPIB, i) => {
+              // console.log(iPIB)
+              // console.log(iPIB.cleanBlurb.innerHTML)
+              return (
+                <>
+                  <li
+                    dangerouslySetInnerHTML={{
+                      __html: iPIB.cleanBlurb.innerHTML,
+                    }}
+                  />
+                </>
+              );
+            })}
+        </ul>
+
+
         {props.standardProcArr.length <= 0 ? null : (
           <p>
             {pronounsObject.petName} received the following standard procedures

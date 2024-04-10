@@ -6,6 +6,7 @@ import Discharge from "./Discharge";
 import Vaccine from "./Vaccine";
 import {
   vaccineInfo,
+  vaccineReminderInfo,
   standardServicesInfo,
   abnormalitiesInfo,
   remindersInfo,
@@ -20,6 +21,7 @@ function StarterForm() {
   const [date, setDate] = useState(moment().format("MM-DD-YYYY"));
   const [reasonForVisit, setReasonForVisit] = useState("");
   const [vaccines, setVaccines] = useState(false);
+  const [vaccineReminders, setVaccineReminders] = useState(false);
   const [appliedStrdPrc, setAppliedStrdPrc] = useState(false);
   const [noAbnormalities, setNoAbnormalities] = useState(false);
   const [noReminders, setNoReminders] = useState(false);
@@ -27,6 +29,9 @@ function StarterForm() {
 
   const [checkedStateOne, setCheckedStateOne] = useState(
     new Array(vaccineInfo.length).fill(false)
+  );
+  const [checkedStateFive, setCheckedStateFive] = useState(
+    new Array(vaccineReminderInfo.length).fill(false)
   );
   const [checkedStateTwo, setCheckedStateTwo] = useState(
     new Array(standardServicesInfo.length).fill(false)
@@ -39,6 +44,7 @@ function StarterForm() {
   );
 
   const [vaccineArray, setVaccineArray] = useState([]);
+  const [vaccineRemindersArray, setVaccineRemindersArray] = useState([]);
   const [standardProcArr, setStandardProcArr] = useState([]);
   const [abnormalityArr, setAbnormalityArr] = useState([]);
   const [remindersArr, setRemindersArr] = useState([]);
@@ -180,6 +186,45 @@ function StarterForm() {
               </>
             )}
           </div>
+
+          <div className="section">
+            <label htmlFor="vaccineReminders">Vaccine Reminder?</label>
+            <input
+              className="form-input"
+              id="vaccineReminders"
+              name="vaccineReminders"
+              onChange={(e) => setVaccineReminders(e.target.checked)}
+              type="checkbox"
+              checked={vaccineReminders}
+            />
+            {vaccineReminders === false ? null : (
+              <>
+                {vaccineReminderInfo.map((vir, i) => {
+                  return (
+                    <div>
+                      <input
+                        id={vir.service}
+                        type="checkbox"
+                        name={vir.service}
+                        key={"vaccineReminder" + i}
+                        checked={checkedStateFive[i]}
+                        onChange={() =>
+                          updateMulticheckArr(
+                            i,
+                            vaccineReminderInfo,
+                            [checkedStateFive, setCheckedStateFive],
+                            [vaccineRemindersArray, setVaccineRemindersArray]
+                          )
+                        }
+                      />
+                      <label htmlFor={vir.service}>{vir.service}</label>
+                    </div>
+                  );
+                })}
+              </>
+            )}
+          </div>
+
           <div className="section">
             <label htmlFor="applied-standard-proc">
               Applied Standard Procedures?
@@ -342,6 +387,7 @@ function StarterForm() {
           reasonForVisit={reasonForVisit}
           noAbnormalities={noAbnormalities}
           vaccineArray={vaccineArray}
+          vaccineRemindersArray={vaccineRemindersArray}
           standardProcArr={standardProcArr}
           abnormalities={abnormalityArr}
           reminders={remindersArr}
