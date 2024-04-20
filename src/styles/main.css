@@ -42,7 +42,7 @@
         #random-dog-img {
             align-self: center;
         }
-        #vaccine-list, #vaccineReminders-list, #standardProcList, #presurgicalExamList, #abnormalitiesList, #remindersList {
+        #vaccine-list, #vaccineReminders-list, #standardProcList, #presurgicalExamList, #abnormalitiesList, #customBlurbsList #remindersList {
             list-style-type: none;
         }
         /* #vaccine-list {

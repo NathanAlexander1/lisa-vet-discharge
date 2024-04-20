@@ -41,12 +41,28 @@ export const stringToHTML = ( servicesArr, pronounsObject, petName ) => {
     let parser = new DOMParser();
     let doc = parser.parseFromString(replaceWords, 'text/html')
     sA.cleanBlurb = doc.body
-    console.log(sA.cleanBlurb)
+    // console.log(sA.cleanBlurb)
     return sA
 
   });
   return dynamicBlurb
 }
+
+// export const convertPreviousReportToHTML = (previousReportString) => { 
+//   // console.log(previousReportString)
+//   let dynamicBlurb = previousReportString.map((sA, i) => {
+//     // console.log(sA.domBlurb)
+//     let replaceWords = sA.domBlurb.split("\n").join("<br>");
+//     // console.log(replaceWords)
+//     let parser = new DOMParser();
+//     let doc = parser.parseFromString(replaceWords, 'text/html')
+//     sA.cleanBlurb = doc.body
+//     console.log(sA.cleanBlurb)
+//     return sA
+
+//   });
+//   return dynamicBlurb
+// }
 
 export const updateMulticheckArr = (
   i,
