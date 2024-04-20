@@ -13,7 +13,7 @@ function PreviousReport(props) {
     petPronouns(props.petSex)
   );
   return (
-    <div>
+    <div className="discharge-report">
       {" "}
       {stringToHTML(previousReportArray, pronounsObject, props.petName).map(
         (iPIB, i) => {

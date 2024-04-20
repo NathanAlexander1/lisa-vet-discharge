@@ -29,7 +29,6 @@ function Discharge(props) {
 
   useEffect(() => {
     setLocalStorage();
-    
   }, []);
 
   return (
