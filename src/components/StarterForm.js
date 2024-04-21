@@ -170,7 +170,7 @@ function StarterForm() {
               </select>
               {/* < Vaccine /> */}
               <div className="section">
-                <label htmlFor="vaccines">Vacfcines?</label>
+                <label htmlFor="vaccines">Vaccines?</label>
                 <input
                   className="form-input"
                   id="vaccines"
