@@ -35,7 +35,7 @@
             height: 100px
         }
     }
-    .discharge-report {
+    .discharge-report, #regen-discharge-report {
         margin: 20px;
         display: flex;
         flex-direction: column;

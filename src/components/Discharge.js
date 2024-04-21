@@ -8,8 +8,8 @@ import {
 } from "../utils/functions";
 
 function Discharge(props) {
-  let previousReportArray = [{ domBlurb: props.previousReport }];
-  console.log(previousReportArray);
+  // let previousReportArray = [{ domBlurb: props.previousReport }];
+  // console.log(previousReportArray);
 
   const [pronounsObject, setPronounsObject] = useState(
     petPronouns(props.petSex)

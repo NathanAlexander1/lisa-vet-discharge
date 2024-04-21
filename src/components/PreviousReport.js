@@ -12,8 +12,14 @@ function PreviousReport(props) {
   const [pronounsObject, setPronounsObject] = useState(
     petPronouns(props.petSex)
   );
+
+  const copyOutput = () => {
+    let report = document.getElementById("regen-discharge-report").innerText;
+    // console.log(report);
+    navigator.clipboard.writeText(report);
+  };
   return (
-    <div className="discharge-report">
+    <div id="regen-discharge-report">
       {" "}
       {stringToHTML(previousReportArray, pronounsObject, props.petName).map(
         (iPIB, i) => {
@@ -30,6 +36,7 @@ function PreviousReport(props) {
           );
         }
       )}
+      <button onClick={() => copyOutput()}>COPY</button>
     </div>
   );
 }
