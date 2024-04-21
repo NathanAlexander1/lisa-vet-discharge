@@ -11,7 +11,7 @@
     align-items: center;
 }
 
-.form-container {
+.form-container, .regenerated-report-container {
     width: 95%;
     border: 3px solid black;
     margin: 15px;
@@ -35,14 +35,14 @@
             height: 100px
         }
     }
-    .discharge-report {
+    .discharge-report, #regen-discharge-report {
         margin: 20px;
         display: flex;
         flex-direction: column;
         #random-dog-img {
             align-self: center;
         }
-        #vaccine-list, #vaccineReminders-list, #standardProcList, #presurgicalExamList, #abnormalitiesList, #remindersList {
+        #vaccine-list, #vaccineReminders-list, #standardProcList, #presurgicalExamList, #abnormalitiesList, #customBlurbsList, #remindersList {
             list-style-type: none;
         }
         /* #vaccine-list {
@@ -67,6 +67,7 @@
         justify-content: space-around;
     }
 }
+
 
 
 h4 {
