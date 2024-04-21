@@ -464,10 +464,12 @@ function StarterForm() {
           )}
         </div>
       ) : (
+        <div className="regenerated-report-container">
         <PreviousReport
           showPreviousReport={showPreviousReport}
           previousReport={previousReport}
         />
+        </div>
       )}
     </>
   );

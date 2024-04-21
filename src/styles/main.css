@@ -11,7 +11,7 @@
     align-items: center;
 }
 
-.form-container {
+.form-container, .regenerated-report-container {
     width: 95%;
     border: 3px solid black;
     margin: 15px;
@@ -67,6 +67,7 @@
         justify-content: space-around;
     }
 }
+
 
 
 h4 {
