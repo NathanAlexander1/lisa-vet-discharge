@@ -43,7 +43,7 @@ export const vaccineInfo = [
     domBlurb: "Next due - ",
   },
   {
-    service: "Bordatella vaccine (1 yr)",
+    service: "Bordetella vaccine (1 yr)",
     serviceWithoutYears: "Bordatella vaccine",
     nextDue: "1 year from when vaccine was administered",
     nextDueYrs: "1",
@@ -137,7 +137,7 @@ export const vaccineReminderInfo = [
     blurb:
       "There is also an FeLV vaccine available through the wellness clinic, which is recommended for cats that will be spending unsupervised time outdoors or frequently interacting with other cats. This vaccine is a series of two, meaning that a booster is required 3-4 weeks following the initial vaccine, after which it can be administered annually. Please let us know if you would be interested in starting this vaccine series at a future visit. Additional information about FeLV and FIV can be found here: https://catvets.com/public/PDFs/ClientBrochures/AAFPFeLV-FIV%20Broch_Print.pdf",
     domBlurb:
-      "<p>There is also an FeLV vaccine available through the wellness clinic, which is recommended for cats that will be spending unsupervised time outdoors or frequently interacting with other cats. This vaccine is a series of two, meaning that a booster is required 3-4 weeks following the initial vaccine, after which it can be administered annually. Please let us know if you would be interested in starting this vaccine series at a future visit. Additional information about FeLV and FIV can be found <a href='https://catvets.com/public/PDFs/ClientBrochures/AAFPFeLV-FIV%20Broch_Print.pdf' target='_blank' >here</a></p>",
+      "<p>There is also an FeLV vaccine available through the wellness clinic, which is recommended for cats that will be spending unsupervised time outdoors or frequently interacting with other cats. This vaccine is a series of two, meaning that a booster is required 3-4 weeks following the initial vaccine, after which it can be administered annually. Please let us know if you would be interested in starting this vaccine series at a future visit. Additional information about FeLV and FIV can be found here: <a href='https://catvets.com/public/PDFs/ClientBrochures/AAFPFeLV-FIV%20Broch_Print.pdf' target='_blank' >https://catvets.com/public/PDFs/ClientBrochures/AAFPFeLV-FIV%20Broch_Print.pdf</a></p>",
   },
   {
     service: "Puppy Vaccines (Reminder) - DHPP",

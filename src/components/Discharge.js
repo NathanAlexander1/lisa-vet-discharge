@@ -10,7 +10,6 @@ import {
 function Discharge(props) {
   // let previousReportArray = [{ domBlurb: props.previousReport }];
   // console.log(previousReportArray);
-
   const [pronounsObject, setPronounsObject] = useState(
     petPronouns(props.petSex)
   );
@@ -33,36 +32,12 @@ function Discharge(props) {
 
   return (
     <>
-      {/* {!props.showPreviousReport ? console.log(document.getElementById("discharge-output")) : (
-        <p>
-          {" "}
-          {stringToHTML(previousReportArray, pronounsObject, props.petName).map(
-            (iPIB, i) => {
-              // console.log(iPIB)
-              // console.log(iPIB.cleanBlurb.innerHTML)
-              return (
-                <>
-                  <p
-                    dangerouslySetInnerHTML={{
-                      __html: iPIB.cleanBlurb.innerHTML,
-                    }}
-                  />
-                </>
-              );
-            }
-          )}
-        </p>
-      )} */}
       <div className="discharge-report">
-        {/* <img id="random-dog-img" width="200px" src={props.randomDogImage} /> */}
         <div id="discharge-output">
           <p>
             It was a pleasure to see {props.petName} for{" "}
             {props.reasonForVisit}.
           </p>
-          {/* {props.noAbnormalities === false ? (
-          <p>There were no abnormalities on your pet's exam, which is great!</p>
-        ) : null} */}
           <div id="vaccine-discharge-section">
             {props.vaccineArray.length <= 0 ? null : (
               <p>
@@ -177,8 +152,6 @@ function Discharge(props) {
                 pronounsObject,
                 props.petName
               ).map((iPIB, i) => {
-                // console.log(iPIB)
-                // console.log(iPIB.cleanBlurb.innerHTML)
                 return (
                   <>
                     <li
@@ -201,8 +174,6 @@ function Discharge(props) {
                 pronounsObject,
                 props.petName
               ).map((iPIB, i) => {
-                // console.log(iPIB)
-                // console.log(iPIB.cleanBlurb.innerHTML)
                 return (
                   <>
                     <li
@@ -217,26 +188,12 @@ function Discharge(props) {
           </div>
           <div id="custom-blurb-discharge-section">
             {props.customBlurb === "" ? null : <p>{props.customBlurb}</p>}
-            {/* {props.textareaValuesArray.length <= 0 ? null : (
-          <ul>
-            {props.textareaValuesArray.map((tAVA, i) => {
-              return (
-                <>
-                  <li>{tAVA.domBlurb}</li>
-                </>
-              )
-            })}
-          </ul>
-        )} */}
-
             <ul id="customBlurbsList">
               {stringToHTML(
                 props.textareaValuesArray,
                 pronounsObject,
                 props.petName
               ).map((iPIB, i) => {
-                // console.log(iPIB)
-                // console.log(iPIB.cleanBlurb.innerHTML)
                 return (
                   <>
                     <li
@@ -249,27 +206,6 @@ function Discharge(props) {
               })}
             </ul>
           </div>
-          {/* {props.textareaValuesArray.length <= 0 ? null : (
-          <ul id="customBlurbsList">
-            {stringToHTML(
-              props.abnormalities,
-              pronounsObject,
-              props.petName
-            ).map((iPIB, i) => {
-              // console.log(iPIB)
-              // console.log(iPIB.cleanBlurb.innerHTML)
-              return (
-                <>
-                  <li
-                    dangerouslySetInnerHTML={{
-                      __html: iPIB.cleanBlurb.innerHTML,
-                    }}
-                  />
-                </>
-              );
-            })}
-          </ul>
-        )} */}
           <div id="reminders-discharge-section">
             {props.reminders.length <= 0 ? null : (
               <p>
@@ -280,8 +216,6 @@ function Discharge(props) {
             <ul id="remindersList">
               {stringToHTML(props.reminders, pronounsObject, props.petName).map(
                 (iPIB, i) => {
-                  // console.log(iPIB)
-                  // console.log(iPIB.cleanBlurb.innerHTML)
                   return (
                     <>
                       <li
@@ -294,6 +228,9 @@ function Discharge(props) {
                 }
               )}
             </ul>
+          </div>
+          <div>
+            <p>Thank you again for bringing {props.petName} to Seattle Humane! Please let us know if you have any other questions or concerns regarding this appointment.</p>
           </div>
         </div>
         <button onClick={() => copyOutput()}>COPY</button>
