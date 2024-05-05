@@ -57,7 +57,7 @@ function Discharge(props) {
         {/* <img id="random-dog-img" width="200px" src={props.randomDogImage} /> */}
         <div id="discharge-output">
           <p>
-            It was a pleasure to see {props.petName} for a{" "}
+            It was a pleasure to see {props.petName} for{" "}
             {props.reasonForVisit}.
           </p>
           {/* {props.noAbnormalities === false ? (
