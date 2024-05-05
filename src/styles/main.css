@@ -11,7 +11,7 @@
     align-items: center;
 }
 
-.form-container, .regenerated-report-container {
+.form-container, .discharge-container, .regenerated-report-container {
     width: 95%;
     border: 3px solid black;
     margin: 15px;
@@ -45,14 +45,6 @@
         #vaccine-list, #vaccineReminders-list, #standardProcList, #presurgicalExamList, #abnormalitiesList, #customBlurbsList, #remindersList {
             list-style-type: none;
         }
-        /* #vaccine-list {
-            list-style-type: none !important;
-          }
-          #vaccine-list li:before {
-            content: '\2013' !important;
-            position: absolute !important;
-            margin-left: -5px !important;
-          } */
         #surgery-websites {
             margin-left: 10%;
             word-wrap: break-word;
