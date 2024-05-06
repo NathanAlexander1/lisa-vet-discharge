@@ -44,7 +44,7 @@ export const vaccineInfo = [
   },
   {
     service: "Bordetella vaccine (1 yr)",
-    serviceWithoutYears: "Bordatella vaccine",
+    serviceWithoutYears: "Bordetella vaccine",
     nextDue: "1 year from when vaccine was administered",
     nextDueYrs: "1",
     domBlurb: "Next due - ",
