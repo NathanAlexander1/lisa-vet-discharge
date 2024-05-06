@@ -6,7 +6,7 @@ import {
 } from "../utils/functions";
 
 function PreviousReport(props) {
-    let previousReportArray = [{ domBlurb: props.previousReport }];
+  let previousReportArray = [{ domBlurb: props.previousReport }];
   console.log(previousReportArray);
 
   const [pronounsObject, setPronounsObject] = useState(
@@ -18,9 +18,15 @@ function PreviousReport(props) {
     // console.log(report);
     navigator.clipboard.writeText(report);
   };
+
+  const newReport = () => {
+    window.location.reload();
+  };
   return (
     <div id="regen-discharge-report">
-      {" "}
+      <button class="btn" onClick={() => newReport()}>
+        New Report
+      </button>{" "}
       {stringToHTML(previousReportArray, pronounsObject, props.petName).map(
         (iPIB, i) => {
           // console.log(iPIB)
@@ -36,7 +42,9 @@ function PreviousReport(props) {
           );
         }
       )}
-      <button onClick={() => copyOutput()}>COPY</button>
+      <button class="btn" onClick={() => copyOutput()}>
+        COPY
+      </button>
     </div>
   );
 }

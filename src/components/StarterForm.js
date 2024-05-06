@@ -108,6 +108,11 @@ function StarterForm() {
     setShowDischarge(false);
   };
 
+  const editReport = () => {
+    console.log("start new");
+    setShowDischarge(false);
+  };
+
   return (
     <>
       {!showPreviousReport ? (
@@ -394,7 +399,11 @@ function StarterForm() {
                         value={textareaValue}
                         onChange={handleTextareaChange}
                       />
-                      <button type="button" onClick={handleButtonClick}>
+                      <button
+                        class="btn"
+                        type="button"
+                        onClick={handleButtonClick}
+                      >
                         Set Blurb
                       </button>
                     </>
@@ -439,14 +448,21 @@ function StarterForm() {
                     </>
                   )}
                 </div>
-                <button>Proceed</button>
-                <button type="button" onClick={handleRenerateLastReport}>
+                <button class="btn">Proceed</button>
+                <button
+                  class="btn"
+                  type="button"
+                  onClick={handleRenerateLastReport}
+                >
                   Regenerate last report
                 </button>
               </form>
             </div>
           ) : (
             <div className="discharge-container">
+              <button class="btn" onClick={() => editReport()}>
+                Edit current report
+              </button>
               <Discharge
                 // randomDogImage={randomDogImage.image}
                 petName={petName}
