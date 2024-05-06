@@ -20,7 +20,9 @@ function Discharge(props) {
     navigator.clipboard.writeText(report);
   };
 
-
+  const newReport = () => {
+    window.location.reload();
+  };
 
   const setLocalStorage = () => {
     let reportToStore = document.getElementById("discharge-output").innerHTML;
@@ -35,10 +37,12 @@ function Discharge(props) {
   return (
     <>
       <div className="discharge-report">
+        <button class="btn" onClick={() => newReport()}>
+          New Report
+        </button>
         <div id="discharge-output">
           <p>
-            It was a pleasure to see {props.petName} for{" "}
-            {props.reasonForVisit}.
+            It was a pleasure to see {props.petName} for {props.reasonForVisit}.
           </p>
           <div id="vaccine-discharge-section">
             {props.vaccineArray.length <= 0 ? null : (
@@ -232,10 +236,16 @@ function Discharge(props) {
             </ul>
           </div>
           <div>
-            <p>Thank you again for bringing {props.petName} to Seattle Humane! Please let us know if you have any other questions or concerns regarding this appointment.</p>
+            <p>
+              Thank you again for bringing {props.petName} to Seattle Humane!
+              Please let us know if you have any other questions or concerns
+              regarding this appointment.
+            </p>
           </div>
         </div>
-        <button class="btn" onClick={() => copyOutput()}>COPY</button>
+        <button class="btn" onClick={() => copyOutput()}>
+          COPY
+        </button>
       </div>
     </>
   );
