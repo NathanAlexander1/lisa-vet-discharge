@@ -11,7 +11,15 @@
     align-items: center;
 }
 
+.btn {
+    /* margin: auto; */
+    margin: 5px auto;
+    padding: 10px;
+}
+
 .form-container, .discharge-container, .regenerated-report-container {
+    display: flex;
+    flex-direction: column;
     width: 95%;
     border: 3px solid black;
     margin: 15px;
@@ -59,8 +67,6 @@
         justify-content: space-around;
     }
 }
-
-
 
 h4 {
     border: 3px solid black;

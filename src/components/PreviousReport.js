@@ -36,7 +36,7 @@ function PreviousReport(props) {
           );
         }
       )}
-      <button onClick={() => copyOutput()}>COPY</button>
+      <button class="btn" onClick={() => copyOutput()}>COPY</button>
     </div>
   );
 }

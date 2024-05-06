@@ -20,6 +20,8 @@ function Discharge(props) {
     navigator.clipboard.writeText(report);
   };
 
+
+
   const setLocalStorage = () => {
     let reportToStore = document.getElementById("discharge-output").innerHTML;
     localStorage.setItem("mostRecentReport", reportToStore);
@@ -233,7 +235,7 @@ function Discharge(props) {
             <p>Thank you again for bringing {props.petName} to Seattle Humane! Please let us know if you have any other questions or concerns regarding this appointment.</p>
           </div>
         </div>
-        <button onClick={() => copyOutput()}>COPY</button>
+        <button class="btn" onClick={() => copyOutput()}>COPY</button>
       </div>
     </>
   );
