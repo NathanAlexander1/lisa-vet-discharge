@@ -114,21 +114,18 @@ function Discharge(props) {
               })}
             </ul>
           </div>
-          <div id="standard-proc-discharge-section">
-            {props.standardProcArr.length <= 0 ? null : (
+          <div id="abnormalities-discharge-section">
+            {props.abnormalities.length <= 0 ? (
               <p>
-                {pronounsObject.petName} received the following standard
-                procedures during this appointment:
+                There were no abnormalities on your pet's exam, which is great!
               </p>
-            )}
-            <ul id="standardProcList">
+            ) : (null)}
+            <ul id="abnormalitiesList">
               {stringToHTML(
-                props.standardProcArr,
+                props.abnormalities,
                 pronounsObject,
                 props.petName
               ).map((iPIB, i) => {
-                // console.log(iPIB)
-                // console.log(iPIB.cleanBlurb.innerHTML)
                 return (
                   <>
                     <li
@@ -141,23 +138,15 @@ function Discharge(props) {
               })}
             </ul>
           </div>
-          <div id="abnormalities-discharge-section">
-            {props.abnormalities.length <= 0 ? (
-              <p>
-                There were no abnormalities on your pet's exam, which is great!
-              </p>
-            ) : (
-              <p>
-                We noticed the following abnormalities during {props.petName}'s
-                appointmnet:
-              </p>
-            )}
-            <ul id="abnormalitiesList">
+          <div id="standard-proc-discharge-section">
+            <ul id="standardProcList">
               {stringToHTML(
-                props.abnormalities,
+                props.standardProcArr,
                 pronounsObject,
                 props.petName
               ).map((iPIB, i) => {
+                // console.log(iPIB)
+                // console.log(iPIB.cleanBlurb.innerHTML)
                 return (
                   <>
                     <li
