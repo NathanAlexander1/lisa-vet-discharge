@@ -255,6 +255,45 @@ function StarterForm() {
                   )}
                 </div>
                 <div className="section">
+                  <label htmlFor="abnormalities">Abnormalities?</label>
+                  <input
+                    className="form-input"
+                    id="abnormalities"
+                    name="abnormalities"
+                    onChange={(e) => setNoAbnormalities(e.target.checked)}
+                    type="checkbox"
+                    checked={noAbnormalities}
+                  />
+                  {noAbnormalities === false ? null : (
+                    <>
+                      {abnormalitiesInfo.map((ai, i) => {
+                        return (
+                          <div>
+                            <input
+                              id={ai.abnormalityBlurb}
+                              type="checkbox"
+                              name={ai.abnormalityBlurb}
+                              key={"abnormality" + i}
+                              checked={checkedStateThree[i]}
+                              onChange={() =>
+                                updateMulticheckArr(
+                                  i,
+                                  abnormalitiesInfo,
+                                  [checkedStateThree, setCheckedStateThree],
+                                  [abnormalityArr, setAbnormalityArr]
+                                )
+                              }
+                            />
+                            <label htmlFor={ai.abnormalityBlurb}>
+                              {ai.abnormalityBlurb}
+                            </label>
+                          </div>
+                        );
+                      })}
+                    </>
+                  )}
+                </div>
+                <div className="section">
                   <label htmlFor="applied-standard-proc">
                     Applied Standard Procedures?
                   </label>
@@ -288,45 +327,6 @@ function StarterForm() {
                               }
                             />
                             <label htmlFor={sSI.service}>{sSI.service}</label>
-                          </div>
-                        );
-                      })}
-                    </>
-                  )}
-                </div>
-                <div className="section">
-                  <label htmlFor="abnormalities">Abnormalities?</label>
-                  <input
-                    className="form-input"
-                    id="abnormalities"
-                    name="abnormalities"
-                    onChange={(e) => setNoAbnormalities(e.target.checked)}
-                    type="checkbox"
-                    checked={noAbnormalities}
-                  />
-                  {noAbnormalities === false ? null : (
-                    <>
-                      {abnormalitiesInfo.map((ai, i) => {
-                        return (
-                          <div>
-                            <input
-                              id={ai.abnormalityBlurb}
-                              type="checkbox"
-                              name={ai.abnormalityBlurb}
-                              key={"abnormality" + i}
-                              checked={checkedStateThree[i]}
-                              onChange={() =>
-                                updateMulticheckArr(
-                                  i,
-                                  abnormalitiesInfo,
-                                  [checkedStateThree, setCheckedStateThree],
-                                  [abnormalityArr, setAbnormalityArr]
-                                )
-                              }
-                            />
-                            <label htmlFor={ai.abnormalityBlurb}>
-                              {ai.abnormalityBlurb}
-                            </label>
                           </div>
                         );
                       })}
